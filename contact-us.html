@@ -1,19 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
   <title>Nothing is Secure Let's find ways to be secure.!</title>
-
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
   <!-- Additional CSS Files -->
   <link rel="stylesheet" href="assets/css/fontawesome.css">
   <link rel="stylesheet" href="assets/css/templatemo-574-mexant.css">
@@ -21,30 +16,33 @@
   <link rel="stylesheet" href="assets/css/animate.css">
   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
   <!--
-
-TemplateMo 574 Mexant
-
-https://templatemo.com/tm-574-mexant
-
--->
+  TemplateMo 574 Mexant
+  https://templatemo.com/tm-574-mexant
+  -->
   <style>
     .contact-us-form .col-lg-6 {
       display: flex;
       justify-content: center;
       align-items: center;
     }
-
     .contact-us-form img {
       max-width: 100%;
       height: auto;
       display: block;
     }
+    .contact-info {
+      margin-bottom: 20px;
+    }
+    .contact-info i {
+      font-size: 24px;
+      margin-right: 10px;
+    }
+    .contact-info span {
+      font-size: 18px;
+    }
   </style>
 </head>
-
 <body>
-
-
   <!-- ***** Header Area Start ***** -->
   <header class="header-area header-sticky">
     <div class="container">
@@ -76,7 +74,6 @@ https://templatemo.com/tm-574-mexant
     </div>
   </header>
   <!-- ***** Header Area End ***** -->
-
   <div class="page-heading">
     <div class="container">
       <div class="row">
@@ -89,15 +86,31 @@ https://templatemo.com/tm-574-mexant
       </div>
     </div>
   </div>
-
   <!-- ***** Main Banner Area End ***** -->
-
   <section class="contact-us-form">
     <div class="container">
       <div class="row">
         <div class="col-lg-6">
           <div class="section-heading">
-            <h6>Let's Get In Touch!</h6>
+            <h6>Meet Us</h6>
+            <h4>Contact Information</h4>
+            <div class="contact-info">
+              <i class="fa fa-phone"></i>
+              <span>+918487809910</span>
+            </div>
+            <div class="contact-info">
+              <i class="fa fa-envelope"></i>
+              <span><a href="mailto:info@blocksecbrain.com">info@blocksecbrain.com</a></span>
+            </div>
+            <div class="contact-info">
+              <i class="fa fa-map-marker"></i>
+              <span>Ahmedabad, Gujarat, India</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="section-heading">
+            <h6>Pitch Us</h6>
             <h4>Feel Free To Message Us</h4>
             <p>To access further details regarding our Cybersecurity Consulting Services, we invite you to complete the form below or reach out to us via email at <a href="mailto:sales@blocksecbrain.com">sales@blocksecbrain.com</a>. Our dedicated team is readily available to furnish you with comprehensive information and address any inquiries you may have. Please feel free to contact us at your convenience for expert assistance tailored to your security needs.</p>
           </div>
@@ -105,73 +118,26 @@ https://templatemo.com/tm-574-mexant
       </div>
     </div>
   </section>
-
   <footer>
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <p><p>Copyright © 2024 BlockSecBrain. All Rights Reserved.</p></p>
+          <p>&copy; 2024 BlockSecBrain. All Rights Reserved.</p>
         </div>
       </div>
     </div>
   </footer>
-
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
   <script src="assets/js/isotope.min.js"></script>
   <script src="assets/js/owl-carousel.js"></script>
-
   <script src="assets/js/tabs.js"></script>
   <script src="assets/js/swiper.js"></script>
   <script src="assets/js/custom.js"></script>
   <script>
-    var interleaveOffset = 0.5;
-
-    var swiperOptions = {
-      loop: true,
-      speed: 1000,
-      grabCursor: true,
-      watchSlidesProgress: true,
-      mousewheelControl: true,
-      keyboardControl: true,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev"
-      },
-      on: {
-        progress: function() {
-          var swiper = this;
-          for (var i = 0; i < swiper.slides.length; i++) {
-            var slideProgress = swiper.slides[i].progress;
-            var innerOffset = swiper.width * interleaveOffset;
-            var innerTranslate = slideProgress * innerOffset;
-            swiper.slides[i].querySelector(".slide-inner").style.transform =
-              "translate3d(" + innerTranslate + "px, 0, 0)";
-          }
-        },
-        touchStart: function() {
-          var swiper = this;
-          for (var i = 0; i < swiper.slides.length; i++) {
-            swiper.slides[i].style.transition = "";
-          }
-        },
-        setTransition: function(speed) {
-          var swiper = this;
-          for (var i = 0; i < swiper.slides.length; i++) {
-            swiper.slides[i].style.transition = speed + "ms";
-            swiper.slides[i].querySelector(".slide-inner").style.transition =
-              speed + "ms";
-          }
-        }
-      }
-    };
-
-    var swiper = new Swiper(".swiper-container", swiperOptions);
+    // JavaScript code here
   </script>
-
 </body>
-
 </html>
