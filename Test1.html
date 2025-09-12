@@ -351,6 +351,14 @@ button:hover {
                 }
             });
 
+            // Check if the response status is not OK
+            if (!response.ok) {
+                // Read the response text to get the exact error from the server
+                const errorText = await response.text();
+                resContainer.innerHTML = `<div class="message-box">API Request Failed: ${response.status} ${response.statusText}. Response: ${errorText}</div>`;
+                return;
+            }
+
             const result = await response.json();
 
             // Handle API errors
@@ -392,4 +400,4 @@ button:hover {
     }
 </script>
 </body>
-</html>
+</html>"
