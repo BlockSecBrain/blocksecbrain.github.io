@@ -64,19 +64,22 @@ input, button {
 }
 button:hover { background: #00ff00; color: #1a1a1a; cursor: pointer; }
 
-/* Box-style output */
-.result-box {
-    background: #111;
-    border: 1px solid #00ff00;
-    border-radius: 6px;
-    padding: 8px 12px;
-    margin: 6px 0;
-    font-size: 0.95em;
-    display: flex;
-    justify-content: space-between;
+/* Table-style output */
+.result-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
 }
-.result-key { font-weight: bold; color: #00ff00; flex: 1; }
-.result-value { color: #fff; flex: 2; text-align: right; }
+.result-table th, .result-table td {
+    border: 1px solid #00ff00;
+    padding: 8px 12px;
+    text-align: left;
+    font-size: 0.95em;
+}
+.result-table th {
+    background: #00ff00;
+    color: #1a1a1a;
+}
 .result-missing { color: #ff4444; font-style: italic; }
 </style>
 </head>
@@ -141,6 +144,16 @@ function openTab(id) {
 let userIP = "";
 fetch("https://api.ipify.org?format=json").then(r => r.json()).then(d => userIP = d.ip);
 
+/* Helper to render table */
+function renderTable(fields) {
+    let html = `<table class="result-table"><thead><tr><th>Key</th><th>Value</th></tr></thead><tbody>`;
+    for (const [k,v] of Object.entries(fields)) {
+        html += `<tr><td>${k}</td><td>${v || '<span class="result-missing">Not found ❌</span>'}</td></tr>`;
+    }
+    html += `</tbody></table>`;
+    return html;
+}
+
 /* IP Info */
 async function getIPInfo() {
     const ip = document.getElementById("ipInput").value || userIP;
@@ -149,12 +162,8 @@ async function getIPInfo() {
     try {
         const r = await fetch(`https://ipapi.co/${ip}/json/`);
         const d = await r.json();
-        let output = "";
         const fields = { IP: d.ip, City: d.city, Region: d.region, Country: d.country_name, ISP: d.org, Latitude: d.latitude, Longitude: d.longitude };
-        for (const [k,v] of Object.entries(fields)) {
-            output += `<div class='result-box'><span class='result-key'>${k}</span><span class='result-value'>${v || "-"}</span></div>`;
-        }
-        res.innerHTML = output;
+        res.innerHTML = renderTable(fields);
     } catch (err) { res.innerHTML = "Error: " + err.message; }
 }
 
@@ -162,22 +171,16 @@ async function getIPInfo() {
 async function getDNSRecords() {
     const domain = document.getElementById("dnsDomain").value.trim();
     const res = document.getElementById("dnsResult");
-    if (!domain) {
-        res.innerHTML = `<div class="result-box"><span class="result-key">Error</span><span class="result-value"><span class="result-missing">Please enter a valid domain ❌</span></span></div>`;
-        return;
-    }
+    if (!domain) { res.innerHTML = renderTable({Error:"Please enter a valid domain ❌"}); return; }
     res.innerHTML = "Checking...";
     const typeMap = {1:"A",2:"NS",5:"CNAME",6:"SOA",12:"PTR",15:"MX",16:"TXT",28:"AAAA"};
     try {
         const r = await fetch(`https://dns.google/resolve?name=${domain}&type=ANY`);
         const d = await r.json();
-        if (!d.Answer) { res.innerHTML = `<div class="result-box"><span class="result-key">Info</span><span class="result-value"><span class="result-missing">No DNS records found ❌</span></span></div>`; return; }
-        let output = "";
-        d.Answer.forEach(a => {
-            const typeName = typeMap[a.type] || a.type;
-            output += `<div class='result-box'><span class='result-key'>${typeName}</span><span class='result-value'>${a.data}</span></div>`;
-        });
-        res.innerHTML = output;
+        if (!d.Answer) { res.innerHTML = renderTable({Info:"No DNS records found ❌"}); return; }
+        let fields = {};
+        d.Answer.forEach(a => { fields[typeMap[a.type] || a.type] = a.data; });
+        res.innerHTML = renderTable(fields);
     } catch (err) { res.innerHTML = "Error: " + err.message; }
 }
 
@@ -185,10 +188,7 @@ async function getDNSRecords() {
 async function getEmailSecurity() {
     const domain = document.getElementById("emailDomain").value.trim();
     const res = document.getElementById("emailResult");
-    if (!domain) {
-        res.innerHTML = `<div class="result-box"><span class="result-key">Error</span><span class="result-value"><span class="result-missing">Please enter a valid domain ❌</span></span></div>`;
-        return;
-    }
+    if (!domain) { res.innerHTML = renderTable({Error:"Please enter a valid domain ❌"}); return; }
     res.innerHTML = "Checking...";
     try {
         const r = await fetch(`https://dns.google/resolve?name=${domain}&type=TXT`);
@@ -196,11 +196,12 @@ async function getEmailSecurity() {
         const spf = d.Answer?.find(a => a.data.includes("v=spf1"));
         const dmarc = d.Answer?.find(a => a.data.includes("v=DMARC1"));
         const dkim = d.Answer?.find(a => a.data.includes("dkim"));
-        let output = "";
-        output += `<div class='result-box'><span class='result-key'>SPF</span><span class='result-value'>${spf ? spf.data : '<span class="result-missing">Not set ❌</span>'}</span></div>`;
-        output += `<div class='result-box'><span class='result-key'>DKIM</span><span class='result-value'>${dkim ? dkim.data : '<span class="result-missing">Not set ❌</span>'}</span></div>`;
-        output += `<div class='result-box'><span class='result-key'>DMARC</span><span class='result-value'>${dmarc ? dmarc.data : '<span class="result-missing">Not set ❌</span>'}</span></div>`;
-        res.innerHTML = output;
+        const fields = {
+            SPF: spf?.data || "Not set ❌",
+            DKIM: dkim?.data || "Not set ❌",
+            DMARC: dmarc?.data || "Not set ❌"
+        };
+        res.innerHTML = renderTable(fields);
     } catch (err) { res.innerHTML = "Error: " + err.message; }
 }
 
@@ -208,16 +209,13 @@ async function getEmailSecurity() {
 async function getReverseDNS() {
     const ip = document.getElementById("reverseIP").value.trim();
     const res = document.getElementById("reverseResult");
-    if (!ip) {
-        res.innerHTML = `<div class="result-box"><span class="result-key">Error</span><span class="result-value"><span class="result-missing">Please enter a valid IP ❌</span></span></div>`;
-        return;
-    }
+    if (!ip) { res.innerHTML = renderTable({Error:"Please enter a valid IP ❌"}); return; }
     res.innerHTML = "Checking...";
     try {
         const r = await fetch(`https://dns.google/resolve?name=${ip}.in-addr.arpa&type=PTR`);
         const d = await r.json();
-        if (!d.Answer) { res.innerHTML = `<div class="result-box"><span class="result-key">Info</span><span class="result-value"><span class="result-missing">No PTR record found ❌</span></span></div>`; return; }
-        res.innerHTML = `<div class='result-box'><span class='result-key'>PTR</span><span class='result-value'>${d.Answer[0].data}</span></div>`;
+        const fields = { PTR: d.Answer?.[0]?.data || "No PTR record found ❌" };
+        res.innerHTML = renderTable(fields);
     } catch (err) { res.innerHTML = "Error: " + err.message; }
 }
 
@@ -225,20 +223,18 @@ async function getReverseDNS() {
 async function getWHOIS() {
     const domain = document.getElementById("whoisDomain").value.trim();
     const res = document.getElementById("whoisResult");
-    if (!domain) {
-        res.innerHTML = `<div class="result-box"><span class="result-key">Error</span><span class="result-value"><span class="result-missing">Please enter a valid domain ❌</span></span></div>`;
-        return;
-    }
+    if (!domain) { res.innerHTML = renderTable({Error:"Please enter a valid domain ❌"}); return; }
     res.innerHTML = "Checking...";
     try {
         const r = await fetch(`https://rdap.org/domain/${domain}`);
         const d = await r.json();
-        let output = "";
-        output += `<div class='result-box'><span class='result-key'>Domain</span><span class='result-value'>${d.ldhName || "-"}</span></div>`;
-        output += `<div class='result-box'><span class='result-key'>Registrar</span><span class='result-value'>${d.entities?.[0]?.vcardArray?.[1]?.[1]?.[3] || "-"}</span></div>`;
-        output += `<div class='result-box'><span class='result-key'>Created</span><span class='result-value'>${d.events?.find(e=>e.eventAction==="registration")?.eventDate || "-"}</span></div>`;
-        output += `<div class='result-box'><span class='result-key'>Expiry</span><span class='result-value'>${d.events?.find(e=>e.eventAction==="expiration")?.eventDate || "-"}</span></div>`;
-        res.innerHTML = output;
+        const fields = {
+            Domain: d.ldhName || "-",
+            Registrar: d.entities?.[0]?.vcardArray?.[1]?.[1]?.[3] || "-",
+            Created: d.events?.find(e=>e.eventAction==="registration")?.eventDate || "-",
+            Expiry: d.events?.find(e=>e.eventAction==="expiration")?.eventDate || "-"
+        };
+        res.innerHTML = renderTable(fields);
     } catch (err) { res.innerHTML = "Error: " + err.message; }
 }
 
@@ -246,10 +242,7 @@ async function getWHOIS() {
 async function getSecurityHeaders() {
     const domain = document.getElementById("headersDomain").value.trim();
     const res = document.getElementById("headersResult");
-    if (!domain) {
-        res.innerHTML = `<div class="result-box"><span class="result-key">Error</span><span class="result-value"><span class="result-missing">Please enter a valid domain ❌</span></span></div>`;
-        return;
-    }
+    if (!domain) { res.innerHTML = renderTable({Error:"Please enter a valid domain ❌"}); return; }
     res.innerHTML = "Checking...";
     try {
         const r = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent("https://" + domain)}`);
@@ -263,12 +256,9 @@ async function getSecurityHeaders() {
             "referrer-policy": "Referrer-Policy",
             "permissions-policy": "Permissions-Policy"
         };
-        let output = "";
-        for (const [key, label] of Object.entries(keys)) {
-            const value = headers[key];
-            output += `<div class='result-box'><span class='result-key'>${label}</span><span class='result-value'>${value ? value : '<span class="result-missing">Not set ❌</span>'}</span></div>`;
-        }
-        res.innerHTML = output;
+        let fields = {};
+        for (const [key,label] of Object.entries(keys)) { fields[label] = headers[key] || "Not set ❌"; }
+        res.innerHTML = renderTable(fields);
     } catch (err) { res.innerHTML = "Error: " + err.message; }
 }
 </script>
