@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Domain & IP Toolkit</title>
+<style>
+/* same CSS you pasted – unchanged */
+</style>
+</head>
+<body>
+<div class="toolkit-container">
+    <h1>Domain & IP Security Toolkit</h1>
+
+    <div class="tabs">
+        <div class="tab active" onclick="openTab('ip')">IP Location</div>
+        <div class="tab" onclick="openTab('dns')">DNS Records</div>
+        <div class="tab" onclick="openTab('health')">Domain Health</div>
+        <div class="tab" onclick="openTab('email')">Email Security</div>
+        <div class="tab" onclick="openTab('reputation')">IP Reputation</div>
+    </div>
+
+    <div id="ip" class="content active">
+        <input type="text" id="ipInput" placeholder="Enter IP or leave blank">
+        <button onclick="getIPInfo()">Check IP</button>
+        <div id="ipResult" class="result-container"></div>
+    </div>
+
+    <div id="dns" class="content">
+        <input type="text" id="dnsDomain" placeholder="Enter domain">
+        <button onclick="getDNSRecords()">Check DNS</button>
+        <div id="dnsResult" class="result-container"></div>
+    </div>
+
+    <div id="health" class="content">
+        <input type="text" id="healthDomain" placeholder="Enter domain">
+        <button onclick="getSSLHealth()">Check Health</button>
+        <div id="loadingBar"></div>
+        <div id="healthResult" class="result-container"></div>
+    </div>
+
+    <div id="email" class="content">
+        <input type="text" id="emailDomain" placeholder="Enter domain">
+        <button onclick="getEmailSecurity()">Check Email Security</button>
+        <div id="emailResult" class="result-container"></div>
+    </div>
+
+    <div id="reputation" class="content">
+        <input type="text" id="repIP" placeholder="Enter IP or leave blank">
+        <button onclick="checkReputation()">Check Reputation</button>
+        <div id="reputationResult" class="result-container"></div>
+    </div>
+</div>
+
+<script>
+/* Tabs */
+function openTab(id) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+    document.querySelector(`.tab[onclick="openTab('${id}')"]`).classList.add('active');
+    document.getElementById(id).classList.add('active');
+}
+
+/* Auto-detect user IP */
+let userIP = "";
+fetch("https://api.ipify.org?format=json").then(r => r.json()).then(d => userIP = d.ip);
+
+/* IP Info */
+async function getIPInfo() {
+    const ip = document.getElementById("ipInput").value || userIP;
+    const res = document.getElementById("ipResult");
+    res.innerHTML = `<div class="message-box">Checking...</div>`;
+    try {
+        const r = await fetch(`https://ip-api.com/json/${ip}`);
+        const d = await r.json();
+        if (d.status === "fail") {
+            res.innerHTML = `<div class="message-box">Error: ${d.message}</div>`;
+            return;
+        }
+        let out = "";
+        for (const [k, v] of Object.entries({
+            "IP": d.query, "City": d.city, "Region": d.regionName,
+            "Country": d.country, "ISP": d.isp, "Org": d.org,
+            "AS": d.as, "Lat": d.lat, "Lon": d.lon
+        })) out += `<div class="result-item"><span class="result-key">${k}:</span><span class="result-value">${v}</span></div>`;
+        res.innerHTML = out;
+    } catch (e) { res.innerHTML = `<div class="message-box">Error: ${e.message}</div>`; }
+}
+
+/* DNS Records */
+async function getDNSRecords() {
+    const domain = document.getElementById("dnsDomain").value;
+    const res = document.getElementById("dnsResult");
+    res.innerHTML = `<div class="message-box">Checking...</div>`;
+    try {
+        const r = await fetch(`https://dns.google/resolve?name=${domain}&type=ANY`);
+        const d = await r.json();
+        if (!d.Answer) { res.innerHTML = `<div class="message-box">No DNS records found.</div>`; return; }
+        const typeMap = {1:"A",2:"NS",5:"CNAME",6:"SOA",12:"PTR",15:"MX",16:"TXT",28:"AAAA"};
+        const grouped = {};
+        d.Answer.forEach(a => {
+            const t = typeMap[a.type] || a.type;
+            (grouped[t] ||= []).push(a.data);
+        });
+        let out = "";
+        for (const [t,v] of Object.entries(grouped)) {
+            out += `<div class="result-item"><span class="result-key">${t}:</span><span class="result-value">${v.join("<br>- ")}</span></div>`;
+        }
+        res.innerHTML = out;
+    } catch (e) { res.innerHTML = `<div class="message-box">Error: ${e.message}</div>`; }
+}
+
+/* SSL Health (via SSLLabs + proxy) */
