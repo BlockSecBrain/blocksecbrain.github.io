@@ -1,265 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="BlockSecBrain Security: Cybersecurity consulting, VAPT services, penetration testing, cloud security, IoT/OT security, and automotive security solutions.">
-    <meta name="author" content="BlockSecBrain Security">
-    <title>BlockSecBrain Security | Cybersecurity Solutions & Consulting</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlockSecBrain Security</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
 
-    <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    body {
+      background-color: #f8f9fa;
+      color: #0d1b2a;
+    }
 
-    <!-- CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/templatemo-574-mexant.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+    header {
+      background-color: #0d1b2a;
+      color: #fff;
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 24px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 100px 50px 50px 50px;
+      background: #0d1b2a url('https://i.ibb.co/1znkGRg/shield.png') no-repeat right 50px center;
+      background-size: 250px;
+      color: #fff;
+    }
+
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 500px;
+      line-height: 1.5;
+    }
+
+    .services {
+      padding: 50px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      text-align: center;
+    }
+
+    .service-card {
+      background: #fff;
+      padding: 30px 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .service-card h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    .service-card p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .cta {
+      text-align: center;
+      padding: 50px;
+    }
+
+    .cta button {
+      background-color: #0d1b2a;
+      color: #fff;
+      border: none;
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .cta button:hover {
+      background-color: #1a2d4b;
+    }
+
+    .know-us {
+      padding: 50px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .know-us div {
+      flex: 1 1 45%;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .know-us h3 {
+      margin-bottom: 15px;
+    }
+
+    .know-us p {
+      color: #555;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        background-position: top right;
+        text-align: center;
+      }
+
+      .know-us {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <header>
+    <h1>BlockSecBrain</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">VAPT Services</a>
+      <a href="#">Know Us</a>
+      <a href="#">Learn More</a>
+      <a href="#">Our Service</a>
+      <a href="#">Security Toolkit</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
 
-    <!-- ***** Header ***** -->
-    <header class="header-area header-sticky">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="main-nav">
-                        <a href="index.html" class="logo">
-                            <img src="assets/images/logo.png" alt="BlockSecBrain Security Logo" style="max-height:60px;">
-                        </a>
-                        <ul class="nav">
-                            <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                            <li class="scroll-to-section"><a href="#services">VAPT Services</a></li>
-                            <li class="scroll-to-section"><a href="#about">Know Us</a></li>
-                            <li class="scroll-to-section"><a href="about-us.html">Learn More</a></li>
-                            <li class="scroll-to-section"><a href="our-services.html">Our Service</a></li>
-                            <li class="scroll-to-section"><a href="demo.html">Security Toolkit</a></li>
-                            <li><a href="contact-us.html">Contact Support</a></li>
-                        </ul>
-                        <a class='menu-trigger'><span>Menu</span></a>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- ***** Hero Slider ***** -->
-    <div class="swiper-container" id="top">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <div class="slide-inner" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/images/slide-01.jpg') center/cover no-repeat;">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-8">
-                                <div class="header-text text-white">
-                                    <h1>Welcome to <em>BlockSecBrain Security</em></h1>
-                                    <p>Trusted cybersecurity consulting partner providing solutions for Web, Cloud, Mobile, IoT, and Automotive security.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="slide-inner" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/images/slide-02.jpg') center/cover no-repeat;">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-8">
-                                <div class="header-text text-white">
-                                    <h1>Our Approach is <em>Offensive Cybersecurity</em></h1>
-                                    <p>Red team simulations to identify vulnerabilities and strengthen your organization’s security posture.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="slide-inner" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/images/slide-03.jpg') center/cover no-repeat;">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-8">
-                                <div class="header-text text-white">
-                                    <h1>Penetration Testing <em>Services</em></h1>
-                                    <p>Identify vulnerabilities before attackers can exploit them and meet compliance requirements effectively.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="swiper-button-next swiper-button-white"></div>
-        <div class="swiper-button-prev swiper-button-white"></div>
+  <section class="hero">
+    <div>
+      <h2>Welcome to BlockSecBrain Security</h2>
+      <p>Trusted cybersecurity consulting partner providing solutions for Web, Cloud, Mobile, IoT, and Automotive security.</p>
     </div>
+  </section>
 
-    <!-- ***** Services ***** -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="service-item">
-                        <i class="fas fa-globe"></i>
-                        <h4>Web Application Security</h4>
-                        <p>VAPT services to identify vulnerabilities such as SQL injection, XSS, and insecure direct object references.</p>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="service-item">
-                        <i class="fas fa-mobile-alt"></i>
-                        <h4>Mobile Application Security</h4>
-                        <p>Assessment of Android and iOS apps to secure code, data storage, and transmission.</p>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="service-item">
-                        <i class="fas fa-cloud"></i>
-                        <h4>Cloud Security</h4>
-                        <p>Evaluate cloud infrastructure and platforms for access control, encryption, and vulnerabilities.</p>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="service-item">
-                        <i class="fas fa-network-wired"></i>
-                        <h4>Infrastructure Security</h4>
-                        <p>Assessment of servers, databases, OS, and critical infrastructure components to prevent unauthorized access.</p>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="service-item">
-                        <i class="fas fa-satellite-dish"></i>
-                        <h4>IoT/OT Security</h4>
-                        <p>Evaluating IoT and OT devices, protocols, and configurations to detect vulnerabilities and strengthen security.</p>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="service-item">
-                        <i class="fas fa-automobile"></i>
-                        <h4>Automotive Security</h4>
-                        <p>Securing connected vehicles, infotainment systems, and associated networks to prevent breaches and theft.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <section class="services">
+    <div class="service-card">
+      <h3>Web Application Security</h3>
+      <p>We offer full-scale web security services to protect your online assets.</p>
+    </div>
+    <div class="service-card">
+      <h3>Mobile Application Security</h3>
+      <p>Ensure your mobile apps are secure from vulnerabilities and attacks.</p>
+    </div>
+    <div class="service-card">
+      <h3>Cloud Security</h3>
+      <p>Secure your cloud infrastructure and maintain data integrity.</p>
+    </div>
+    <div class="service-card">
+      <h3>Infrastructure Security</h3>
+      <p>Protect your IT infrastructure against breaches and threats.</p>
+    </div>
+    <div class="service-card">
+      <h3>IoT/OT Security</h3>
+      <p>End-to-end protection for IoT and OT devices and networks.</p>
+    </div>
+    <div class="service-card">
+      <h3>Automotive Security</h3>
+      <p>Secure automotive systems against cyber threats.</p>
+    </div>
+  </section>
 
-    <!-- ***** CTA ***** -->
-    <section class="simple-cta">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5">
-                    <h4>Cybersecurity <em>Solutions</em> & <strong>Consulting Services</strong></h4>
-                </div>
-                <div class="col-lg-7">
-                    <div class="buttons">
-                        <div class="green-button">
-                            <a href="#">Discover More</a>
-                        </div>
-                        <div class="orange-button">
-                            <a href="#">Contact Us</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <section class="cta">
+    <h2>Cybersecurity Solutions and Consulting Services</h2>
+    <button>Discover More</button>
+    <button>Contact Us</button>
+  </section>
 
-    <!-- ***** About ***** -->
-    <section class="about-us" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 offset-lg-3">
-                    <div class="section-heading">
-                        <h2>Know Us Better</h2>
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="naccs">
-                        <p>BlockSecBrain's vision is to become a trusted partner for businesses seeking effective cybersecurity solutions worldwide. Our team leverages expertise in Web, Cloud, Mobile, IoT, and Automotive security.</p>
-                        <p>We prioritize close collaboration to deliver tailored solutions and mitigate cyber risks while staying up-to-date with industry best practices.</p>
-                        <p>Our professionals are dedicated to protecting digital assets, ensuring data confidentiality, and maintaining system availability with excellence and transparency.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="right-content">
-                        <h4>Unleash Your Business Safely: Prioritize Security</h4>
-                        <p>Transform your business for success by building robust cybersecurity into your operations.</p>
-                        <div class="green-button">
-                            <a href="about-us.html">Discover More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright © 2025 BlockSecBrain. All Rights Reserved.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script defer src="vendor/jquery/jquery.min.js"></script>
-    <script defer src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script defer src="assets/js/isotope.min.js"></script>
-    <script defer src="assets/js/owl-carousel.js"></script>
-    <script defer src="assets/js/tabs.js"></script>
-    <script defer src="assets/js/swiper.js"></script>
-    <script defer src="assets/js/custom.js"></script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var interleaveOffset = 0.5;
-            var swiperOptions = {
-                loop: true,
-                speed: 1000,
-                grabCursor: true,
-                watchSlidesProgress: true,
-                mousewheelControl: true,
-                keyboardControl: true,
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev"
-                },
-                on: {
-                    progress: function () {
-                        var swiper = this;
-                        for (var i = 0; i < swiper.slides.length; i++) {
-                            var slideProgress = swiper.slides[i].progress;
-                            var innerOffset = swiper.width * interleaveOffset;
-                            var innerTranslate = slideProgress * innerOffset;
-                            swiper.slides[i].querySelector(".slide-inner").style.transform =
-                                "translate3d(" + innerTranslate + "px, 0, 0)";
-                        }
-                    },
-                    touchStart: function () {
-                        var swiper = this;
-                        for (var i = 0; i < swiper.slides.length; i++) {
-                            swiper.slides[i].style.transition = "";
-                        }
-                    },
-                    setTransition: function (speed) {
-                        var swiper = this;
-                        for (var i = 0; i < swiper.slides.length; i++) {
-                            swiper.slides[i].style.transition = speed + "ms";
-                            swiper.slides[i].querySelector(".slide-inner").style.transition =
-                                speed + "ms";
-                        }
-                    }
-                }
-            };
-            var swiper = new Swiper(".swiper-container", swiperOptions);
-        });
-    </script>
+  <section class="know-us">
+    <div>
+      <h3>Know Us Better</h3>
+      <p>BlockSecBrain's vision is to become a leading cybersecurity consulting partner, providing professional services and solutions to protect organizations worldwide.</p>
+    </div>
+    <div>
+      <h3>Unleash Your Business Safely</h3>
+      <p>Prioritize security to ensure safe operations and maximize business success without worrying about cyber threats.</p>
+    </div>
+  </section>
 </body>
-
 </html>
