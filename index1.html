@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BlockSecBrain Security</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     * {
       margin: 0;
@@ -42,21 +43,28 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 100px 50px 50px 50px;
-      background: #0d1b2a url('https://i.ibb.co/1znkGRg/shield.png') no-repeat right 50px center;
-      background-size: 250px;
+      padding: 80px 50px;
+      background-color: #0d1b2a;
       color: #fff;
     }
 
+    .hero-text {
+      max-width: 50%;
+    }
+
     .hero h2 {
-      font-size: 36px;
+      font-size: 40px;
       margin-bottom: 20px;
     }
 
     .hero p {
       font-size: 18px;
-      max-width: 500px;
-      line-height: 1.5;
+      line-height: 1.6;
+    }
+
+    .hero img {
+      max-width: 450px;
+      border-radius: 12px;
     }
 
     .services {
@@ -72,6 +80,12 @@
       padding: 30px 20px;
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .service-card i {
+      font-size: 30px;
+      color: #0d1b2a;
+      margin-bottom: 15px;
     }
 
     .service-card h3 {
@@ -133,8 +147,16 @@
     @media (max-width: 768px) {
       .hero {
         flex-direction: column;
-        background-position: top right;
         text-align: center;
+      }
+
+      .hero-text {
+        max-width: 100%;
+      }
+
+      .hero img {
+        margin-top: 20px;
+        max-width: 100%;
       }
 
       .know-us {
@@ -158,34 +180,41 @@
   </header>
 
   <section class="hero">
-    <div>
+    <div class="hero-text">
       <h2>Welcome to BlockSecBrain Security</h2>
       <p>Trusted cybersecurity consulting partner providing solutions for Web, Cloud, Mobile, IoT, and Automotive security.</p>
     </div>
+    <img src="https://i.ibb.co/MBK6j4M/cybersecurity-shield-hand.jpg" alt="Cybersecurity Shield in Hand">
   </section>
 
   <section class="services">
     <div class="service-card">
+      <i class="fa-solid fa-globe"></i>
       <h3>Web Application Security</h3>
       <p>We offer full-scale web security services to protect your online assets.</p>
     </div>
     <div class="service-card">
+      <i class="fa-solid fa-mobile-screen"></i>
       <h3>Mobile Application Security</h3>
       <p>Ensure your mobile apps are secure from vulnerabilities and attacks.</p>
     </div>
     <div class="service-card">
+      <i class="fa-solid fa-cloud"></i>
       <h3>Cloud Security</h3>
       <p>Secure your cloud infrastructure and maintain data integrity.</p>
     </div>
     <div class="service-card">
+      <i class="fa-solid fa-server"></i>
       <h3>Infrastructure Security</h3>
       <p>Protect your IT infrastructure against breaches and threats.</p>
     </div>
     <div class="service-card">
+      <i class="fa-solid fa-network-wired"></i>
       <h3>IoT/OT Security</h3>
       <p>End-to-end protection for IoT and OT devices and networks.</p>
     </div>
     <div class="service-card">
+      <i class="fa-solid fa-car-side"></i>
       <h3>Automotive Security</h3>
       <p>Secure automotive systems against cyber threats.</p>
     </div>
