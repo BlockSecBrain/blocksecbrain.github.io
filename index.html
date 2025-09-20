@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cybersecurity VAPT Services | BlockSecBrain Security</title>
+  <meta name="description" content="BlockSecBrain offers unbiased cybersecurity testing including Web, Mobile, Cloud, IoT, and Automotive VAPT. Trusted by teams across India.">
+  <link href="templatemo-nexus-style.css" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "BlockSecBrain",
+  "url": "https://blocksecbrain.com",
+  "email": "sales@blocksecbrain.com",
+  "logo": "https://blocksecbrain.com/logo.png",
+  "sameAs": [
+    "https://linkedin.com/company/blocksecbrain"
+  ],
+  "description": "BlockSecBrain is a cybersecurity consulting firm offering VAPT services across Web, Mobile, Cloud, IoT, and Automotive platforms."
+}
+</script>
+
+  <style>
+    /* Navigation */
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background-color: #000;
+      flex-wrap: wrap;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-img { height: 40px; width: auto; display: block; }
+    .logo-text { color: #fff; font-size: 1.2rem; font-weight: bold; white-space: nowrap; }
+    .nav-links { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
+    .nav-links li a { color: #fff; text-decoration: none; font-weight: 500; }
+    .nav-bottom .cyber-button { background-color: #0ff; color: #000; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-weight: bold; }
+    .mobile-menu-button { display: none; background: none; border: none; cursor: pointer; }
+    .hamburger span { display: block; width: 25px; height: 3px; background-color: #fff; margin: 4px 0; }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-menu-button { display: block; }
+      .nav-container { justify-content: center; }
+    }
+
+    /* Hero Section */
+    .hero-container { text-align: center; padding: 60px 20px; }
+    .hero-title { font-size: 3rem; }
+    .hero-subtitle { max-width: 1000px; margin: 0 auto; padding: 0 40px; font-size: 1.4rem; line-height: 1.9; text-align: justify; }
+    .hero-buttons { margin-top: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .btn-primary, .btn-secondary { padding: 12px 24px; border-radius: 4px; text-decoration: none; font-weight: bold; transition: background 0.3s ease; }
+    .btn-primary { background-color: #0ff; color: #000; }
+    .btn-secondary { background-color: transparent; border: 2px solid #0ff; color: #0ff; }
+
+    @media (max-width: 768px) {
+      .hero-title { font-size: 2.2rem; }
+      .hero-subtitle { font-size: 1rem; padding: 0 20px; text-align: left; }
+    }
+
+    /* Stats Section */
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
+    @media (max-width: 992px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .stats-grid { grid-template-columns: 1fr; } }
+
+    /* Features Section */
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    @media (max-width: 992px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .features-grid { grid-template-columns: 1fr; } }
+
+    /* Pricing Section */
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
+    @media (max-width: 992px) { .pricing-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .pricing-grid { grid-template-columns: 1fr; } }
+
+    /* Contact Form */
+    .contact-form { max-width: 600px; margin: 0 auto; padding: 20px; }
+    .form-group input, .form-group textarea { width: 100%; box-sizing: border-box; }
+
+    /* Footer */
+    .footer-content { text-align: center; padding: 20px; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .footer-bottom p { margin: 5px 0; font-size: 0.9rem; }
+  </style>
+</head>
+<body id="top">
+
+<!-- Background -->
+<div class="cyber-bg">
+  <div class="cyber-gradient"></div>
+  <div class="matrix-rain" id="matrixRain"></div>
+</div>
+<div class="particles" id="particlesContainer"></div>
+<div class="data-streams" id="dataStreams"></div>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+<div class="grid-overlay">
+  <div class="grid-lines"></div>
+  <div class="grid-glow"></div>
+</div>
+<div class="scanlines"></div>
+<div class="noise-overlay"></div>
+
+<!-- Navigation -->
+<nav role="navigation" aria-label="Main Navigation">
+  <style>
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      background-color: #0a0a23;
+      padding: 10px 20px;
+      font-family: Arial, sans-serif;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .logo-img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li {
+      position: relative;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #fff;
+      padding: 8px 12px;
+      display: block;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #1a1a3d;
+      min-width: 280px;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      z-index: 1000;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-section {
+      margin-bottom: 15px;
+    }
+
+    .dropdown-section-title {
+      color: #00ffff;
+      font-weight: bold;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .dropdown-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .dropdown-section ul li a {
+      color: #fff;
+      font-size: 13px;
+      padding: 6px 0;
+      display: block;
+      text-decoration: none;
+    }
+
+    .cyber-button {
+      background-color: #00ffcc;
+      color: #000;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .mobile-menu-button {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      margin: 5px 0;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .mobile-menu-button {
+        display: block;
+      }
+
+      .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        padding: 10px 0;
+      }
+
+      .dropdown:hover .dropdown-menu {
+        display: none;
+      }
+
+      .dropdown.open .dropdown-menu {
+        display: block;
+      }
+
+      .nav-bottom {
+        margin-top: 1rem;
+        text-align: center;
+        width: 100%;
+      }
+    }
+  </style>
+
+  <div class="nav-container">
+    <a href="#top" class="logo">
+      <img src="images/white.svg" alt="BlockSecBrain Logo" class="logo-img" />
+      <span class="logo-text">BlockSecBrain</span>
+    </a>
+
+    <button class="mobile-menu-button" id="mobileMenuBtn" aria-label="Toggle menu">
+      <div class="hamburger"><span></span><span></span><span></span></div>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#top">Home</a></li>
+      <li class="dropdown" id="serviceDropdown">
+        <a href="#features">Service</a>
+        <div class="dropdown-menu">
+          <div class="dropdown-section">
+            <div class="dropdown-section-title">Managed Services</div>
+            <ul>
+              <li><a href="web-application-security.html">Web Application Security</a></li>
+              <li><a href="mobile-application-security.html">Mobile Application Security</a></li>
+              <li><a href="cloud-security.html">Cloud Security</a></li>
+              <li><a href="firewall-infrastructure-security.html">Firewall & Infrastructure</a></li>
+              <li><a href="iot-ot-security.html">IoT/OT Security</a></li>
+              <li><a href="automotive-security.html">Automotive Security</a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-bottom">
+      <a href="#" class="cyber-button">Access Terminal</a>
+    </div>
+  </div>
+
+  <script>
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    const serviceDropdown = document.getElementById('serviceDropdown');
+
+    mobileBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+
+    serviceDropdown.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        serviceDropdown.classList.toggle('open');
+      }
+    });
+  </script>
+</nav>            
+
+  <!-- Mobile Menu -->
+<!-- Mobile Menu -->
+<div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-header">
+    <a href="#top" class="mobile-menu-logo">BlockSecBrain</a>
+    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
+  </div>
+
+  <div class="mobile-menu-cta">
+    <a href="#" class="cyber-button">Access Terminal</a>
+  </div>
+
+  <nav class="mobile-menu-nav" role="navigation" aria-label="Mobile Navigation">
+    <ul>
+      <li><a href="#features">Service</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+
+<!-- Hero -->
+<section class="hero" style="background-color: #0a0a23; color: #fff; padding: 2rem 1rem;">
+  <style>
+    .hero-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+      padding-inline: 1rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: bold;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-nexus {
+      color: #00ffcc;
+      margin-right: 0.25em;
+    }
+
+    .hero-flow {
+      color: #fff;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.125rem);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+
+    .hero-buttons {
+      margin-top: 1.5rem;
+    }
+
+    .btn-primary {
+      background-color: #00ffcc;
+      color: #000;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #00e6b3;
+    }
+
+    @media (max-width: 768px) {
+      .hero-subtitle {
+        text-align: left;
+      }
+    }
+  </style>
+<!-- Hero -->
+  <div class="hero-container">
+    <h1 class="hero-title">
+      <span class="hero-nexus">BlockSecBrain</span>
+      <span class="hero-flow">Security</span>
+    </h1>
+
+    <p class="hero-subtitle">
+In today’s technology landscape, many IT service providers prioritise sales targets and product promotions over genuine client needs. Our team at BlockSecBrain was formed in response to this gap. Having worked across leading IT firms and with top-tier technology manufacturers, we’ve seen how commercial agendas often overshadow practical, security-focused solutions.</p>
+    <p class="hero-subtitle">
+      That’s exactly where BlockSecBrain stands apart. We don’t sell hardware, promote products, or chase sales targets. Instead, we focus on our core strength-deep expertise and honest guidance. Our objective is to deliver unbiased assessments of your security and network requirements, ensuring you get what’s truly needed—not what others want to sell.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#contact" class="btn-primary">Let’s connect - fortify the digital landscape before threats exploit it.</a>
+    </div>
+  </div>
+</section>
+
+  <!-- Features -->
+
+<!-- Services Section -->
+<section class="features fade-up" id="features" style="background-color: #0a0a23; color: #fff; padding: 2rem 1rem;">
+  <style>
+    .features-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-inline: 1rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      color: #00ffcc;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      font-size: clamp(1rem, 2vw, 1.125rem);
+      line-height: 1.6;
+      color: #ccc;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-card {
+      background-color: #111;
+      padding: 1.25rem;
+      border-radius: 8px;
+      color: #fff;
+      box-shadow: 0 0 10px rgba(0, 255, 204, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: #00ffcc;
+    }
+
+    .feature-card p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #ddd;
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: #00ffcc;
+      border: 2px solid #00ffcc;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 1rem;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background-color: #00ffcc;
+      color: #000;
+    }
+  </style>
+
+  <div class="features-container">
+    <div class="section-header">
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-subtitle">
+        Our cybersecurity specialists run real-world simulations to uncover risks.  
+        Helps your organisation remediate gaps and stay secure.
+      </p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🌐️</div>
+        <h3>Web Application Security</h3>
+        <p>VAPT aligned with OWASP Top 10 and SANS/CWE 25. We uncover flaws like broken access control, injection, insecure design, and outdated components using automated, manual, and AI-enhanced analysis.</p>
+        <div class="hero-buttons">
+          <a href="web-application-security.html" class="btn-secondary">Uncover Insights</a>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <h3>Mobile Application Security</h3>
+        <p>Android/iOS VAPT covering insecure authentication, data leakage, and API risks. We ensure secure code, storage, and communication across devices and networks.</p>
+        <div class="hero-buttons">
+		  <a href="mobile-application-security.html" class="btn-secondary">Uncover Insights</a>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">☁️</div>
+        <h3>Cloud Security</h3>
+        <p>We assess cloud platforms, containers, and hybrid setups. Our tests cover access controls, encryption, and misconfigurations to meet compliance and boost resilience.</p>
+        <div class="hero-buttons">
+		<a href="cloud-security.html" class="btn-secondary">Uncover Insights</a>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🔐</div>
+        <h3>Firewall & Infrastructure</h3>
+        <p>VAPT for firewalls, servers, and OS. We detect privilege escalation, misconfigurations, and unpatched software—without vendor bias or sales pressure.</p>
+        <div class="hero-buttons">
+		<a href="firewall-infrastructure-security.html" class="btn-secondary">Uncover Insights</a>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🔌</div>
+        <h3>IoT/OT Security</h3>
+        <p>We test firmware, device protocols, and network exposure. Our assessments strengthen encryption, access controls, and inter-device communication.</p>
+        <div class="hero-buttons">
+		  <a href="iot-ot-security.html" class="btn-secondary">Uncover Insights</a>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🚗</div>
+        <h3>Automotive Security</h3>
+        <p>We secure connected vehicles and infotainment systems. Our VAPT identifies risks to safety-critical functions, data exposure, and unauthorized access.</p>
+        <div class="hero-buttons">
+		  <a href="automotive-security.html" class="btn-secondary">Uncover Insights</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Pricing -->
+<!-- Testing Packages Section -->
+<section class="pricing fade-up" id="pricing" style="background-color: #0a0a23; color: #fff; padding: 2rem 1rem;">
+  <style>
+    .pricing-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-inline: 1rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      color: #00ffcc;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      font-size: clamp(1rem, 2vw, 1.125rem);
+      color: #ccc;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .pricing-card {
+      background-color: #111;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 255, 204, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .pricing-card.featured {
+      border: 2px solid #00ffcc;
+    }
+
+    .plan-name {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #00ffcc;
+      margin-bottom: 1rem;
+    }
+
+    .plan-features {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .plan-features li {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #ddd;
+      margin-bottom: 0.5rem;
+    }
+
+    .btn-primary, .btn-secondary {
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-weight: bold;
+      display: inline-block;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .btn-primary {
+      background-color: #00ffcc;
+      color: #000;
+    }
+
+    .btn-primary:hover {
+      background-color: #00e6b3;
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: #00ffcc;
+      border: 2px solid #00ffcc;
+    }
+
+    .btn-secondary:hover {
+      background-color: #00ffcc;
+      color: #000;
+    }
+  </style>
+
+  <div class="pricing-container">
+    <div class="section-header">
+      <h2 class="section-title">Testing Packages</h2>
+      <p class="section-subtitle">BlockSecBrain Security Testing Models</p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="plan-name">Standard Security Testing</div>
+        <ul class="plan-features">
+          <li>Includes full test planning, execution, and reporting</li>
+          <li>Covers OWASP Top 10, SANS 25, and custom business logic flaws</li>
+          <li>Suitable for well-defined applications and enterprise-grade systems</li>
+          <li>Transparent pricing after scope walkthrough</li>
+        </ul>
+		<a href="#contact" class="btn-secondary">Enter System</a>
+      </div>
+
+      <div class="pricing-card featured">
+        <div class="plan-name">Hybrid Security Testing</div>
+        <ul class="plan-features">
+          <li>Start with free or low-cost scans</li>
+          <li>Pay only if vulnerabilities are found</li>
+          <li>Covers web, mobile, API, infrastructure, source code, and more</li>
+          <li>Best for startups, budget-conscious teams, or large scopes with wildcard domains</li>
+        </ul>
+        <a href="#contact" class="btn-primary">Jack In</a>
+      </div>
+
+      <div class="pricing-card">
+        <div class="plan-name">Offensive Security Testing</div>
+        <ul class="plan-features">
+          <li>Combines external attacker simulation with insider insights</li>
+          <li>Ideal for mature applications where internal logic needs validation</li>
+          <li>Flexible billing post-assessment</li>
+          <li>Helps uncover deep logic flaws and privilege escalation risks</li>
+        </ul>
+   		<a href="#contact" class="btn-secondary">Ascend</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" style="background-color: #0a0a23; color: #fff; padding: 2rem 1rem;">
+  <style>
+    .contact-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-inline: 1rem;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      color: #00ffcc;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      font-size: clamp(1rem, 2vw, 1.125rem);
+      color: #ccc;
+      margin-bottom: 2rem;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+      color: #00ffcc;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 4px;
+      background-color: #1a1a2e;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .contact-form button {
+      background-color: #00ffcc;
+      color: #000;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #00e6b3;
+    }
+
+    .contact-note {
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .contact-form {
+        text-align: left;
+      }
+    }
+  </style>
+
+  <div class="contact-container">
+    <h2 class="section-title">Initialize Contact</h2>
+    <p class="section-subtitle">Let’s secure your stack</p>
+
+    <form class="contact-form" action="mailto:sales@blocksecbrain.com" method="POST" enctype="text/plain">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="interest">I’m interested in</label>
+<select id="interest" name="interest">
+  <option value="Web Application Security">Web Application Security</option>
+  <option value="Mobile Application Security">Mobile Application Security</option>
+  <option value="Cloud Security">Cloud Security</option>
+  <option value="Firewall & Infrastructure Security">Firewall & Infrastructure Security</option>
+  <option value="IoT/OT Security">IoT/OT Security</option>
+  <option value="Automotive Security">Automotive Security</option>
+  <option value="Standard Security Testing">Standard Security Testing</option>
+  <option value="Hybrid Security Testing">Hybrid Security Testing</option>
+  <option value="Offensive Security Testing">Offensive Security Testing</option>
+  <option value="General Inquiry">General Inquiry</option>
+</select>
+      <label for="message">Your Message</label>
+      <textarea id="message" name="message" placeholder="Tell us about your project or concern..." required></textarea>
+
+      <button type="submit">Send Transmission</button>
+    </form>
+
+    <p class="contact-note">
+      Prefer direct email? Reach us at <a href="mailto:sales@blocksecbrain.com" style="color:#00ffcc;">sales@blocksecbrain.com</a><br>
+      Your data is never shared. We respond within 24 hours.
+    </p>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a><span class="footer-separator">•</span>
+        <a href="#">Terms of Service</a><span class="footer-separator">•</span>
+        <a href="#">Documentation</a><span class="footer-separator">•</span>
+        <a href="#">Contact Support</a>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 BlockSecBrain. All Rights Reserved..</p>
+        <p class="footer-credit">Made by Linuxr00t TechLab<a target="_blank" rel="noopener nofollow"></a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="templatemo-nexus-scripts.js"></script>
+</body>
+</html>
