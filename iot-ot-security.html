@@ -1,1 +1,341 @@
-<!DOCTYPE html><html lang="en"><head>  <meta charset="UTF-8">  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>IoT/OT Security - BlockSecBrain</title>  <link href="templatemo-nexus-style.css" rel="stylesheet">  <style>    /* Navigation */    .nav-container {      display: flex;      align-items: center;      justify-content: space-between;      padding: 10px 20px;      background-color: #000;      flex-wrap: wrap;    }    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }    .logo-img { height: 40px; width: auto; display: block; }    .logo-text { color: #fff; font-size: 1.2rem; font-weight: bold; white-space: nowrap; }    .nav-links { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }    .nav-links li a { color: #fff; text-decoration: none; font-weight: 500; }    .nav-bottom .cyber-button { background-color: #0ff; color: #000; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-weight: bold; }    .mobile-menu-button { display: none; background: none; border: none; cursor: pointer; }    .hamburger span { display: block; width: 25px; height: 3px; background-color: #fff; margin: 4px 0; }    /* Hero Section */    .hero-container { text-align: center; padding: 60px 20px; }    .hero-title { font-size: 3rem; }    .hero-subtitle { max-width: 1000px; margin: 0 auto; padding: 0 40px; font-size: 1.4rem; line-height: 1.9; text-align: justify; }    .hero-buttons { margin-top: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }    .btn-primary, .btn-secondary { padding: 12px 24px; border-radius: 4px; text-decoration: none; font-weight: bold; transition: background 0.3s ease; }    .btn-primary { background-color: #0ff; color: #000; }    .btn-secondary { background-color: transparent; border: 2px solid #0ff; color: #0ff; }    /* Features Grid */    .features-container { max-width: 1200px; margin: 0 auto; margin-top: 50px; }    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }    .feature-card { background-color: #111; padding: 1.25rem; border-radius: 8px; color: #fff; }    .feature-icon { font-size: 2rem; margin-bottom: 0.75rem; }    /* Footer */    .footer-content { text-align: center; padding: 20px; }    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }    .footer-bottom p { margin: 5px 0; font-size: 0.9rem; }    /* Mobile adjustments */    @media (max-width: 768px) {      .nav-links { display: none; flex-direction: column; width: 100%; }      .nav-links.show { display: flex; }      .mobile-menu-button { display: block; }    }  </style></head><body id="top">  <!-- Background and Visual Effects -->  <div class="cyber-bg"><div class="cyber-gradient"></div></div>  <div class="particles" id="particlesContainer"></div>  <div class="data-streams" id="dataStreams"></div>  <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>  <div class="grid-overlay"><div class="grid-lines"></div><div class="grid-glow"></div></div>  <div class="scanlines"></div><div class="noise-overlay"></div>  <!-- Navigation -->   <div class="cyber-bg">    <div class="cyber-gradient"></div>    <div class="matrix-rain" id="matrixRain"></div>  </div>  <div class="particles" id="particlesContainer"></div>  <div class="data-streams" id="dataStreams"></div>  <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>  <div class="grid-overlay"><div class="grid-lines"></div><div class="grid-glow"></div></div>  <div class="scanlines"></div><div class="noise-overlay"></div>  <!-- Navigation --><nav>  <style>    .nav-container {      display: flex;      align-items: center;      justify-content: space-between;      flex-wrap: wrap;      background-color: #0a0a23;      padding: 10px 20px;      font-family: Arial, sans-serif;    }    .logo {      display: flex;      align-items: center;      text-decoration: none;      color: #fff;    }    .logo-img {      height: 40px;      margin-right: 10px;    }    .nav-links {      list-style: none;      display: flex;      gap: 20px;      margin: 0;      padding: 0;    }    .nav-links li {      position: relative;    }    .nav-links a {      text-decoration: none;      color: #fff;      padding: 8px 12px;      display: block;    }    .dropdown-menu {      display: none;      position: absolute;      top: 100%;      left: 0;      background-color: #1a1a3d;      min-width: 280px;      padding: 15px;      box-shadow: 0 4px 8px rgba(0,0,0,0.3);      z-index: 1000;    }    .dropdown:hover .dropdown-menu {      display: block;    }    .dropdown-section {      margin-bottom: 15px;    }    .dropdown-section-title {      color: #00ffff;      font-weight: bold;      margin-bottom: 8px;      font-size: 14px;    }    .dropdown-section ul {      list-style: none;      padding: 0;      margin: 0;    }    .dropdown-section ul li a {      color: #fff;      font-size: 13px;      padding: 6px 0;      display: block;      text-decoration: none;    }    .cyber-button {      background-color: #00ffcc;      color: #000;      padding: 8px 16px;      text-decoration: none;      border-radius: 4px;      font-weight: bold;    }    .mobile-menu-button {      display: none;      background: none;      border: none;      cursor: pointer;    }    .hamburger span {      display: block;      width: 25px;      height: 3px;      background-color: #fff;      margin: 5px 0;    }    @media (max-width: 768px) {      .nav-links {        flex-direction: column;        width: 100%;        display: none;      }      .nav-links.show {        display: flex;      }      .mobile-menu-button {        display: block;      }      .dropdown-menu {        position: static;        box-shadow: none;        padding: 10px 0;      }      .dropdown:hover .dropdown-menu {        display: none;      }      .dropdown.open .dropdown-menu {        display: block;      }    }  </style>  <div class="nav-container">    <a href="#top" class="logo">      <img src="images/white.svg" alt="BlockSecBrain Logo" class="logo-img" />      <span class="logo-text">BlockSecBrain</span>    </a>    <button class="mobile-menu-button" id="mobileMenuBtn">      <div class="hamburger"><span></span><span></span><span></span></div>    </button>    <ul class="nav-links" id="navLinks">      <li><a href="index.html">Home</a></li>      <li class="dropdown" id="serviceDropdown">        <a href="#">Service</a>        <div class="dropdown-menu">          <div class="dropdown-section">            <div class="dropdown-section-title">Managed Services</div>            <ul>              <li><a href="web-application-security.html">Web Application Security</a></li>              <li><a href="mobile-application-security.html">Mobile Application Security</a></li>              <li><a href="cloud-security.html">Cloud Security</a></li>              <li><a href="firewall-infrastructure-security.html">Firewall and Core Infrastructure Security</a></li>              <li><a href="iot-ot-security.html">IoT/OT Security</a></li>              <li><a href="automotive-security.html">Automotive Security</a></li>            </ul>          </div>        </div>      </li>      <li><a href="#pricing">Pricing</a></li>      <li><a href="about.html">About</a></li>      <li><a href="#contact">Contact</a></li>    </ul>    <div class="nav-bottom"><a href="#" class="cyber-button">Access Terminal</a></div>  </div>  <script>    const mobileBtn = document.getElementById('mobileMenuBtn');    const navLinks = document.getElementById('navLinks');    const serviceDropdown = document.getElementById('serviceDropdown');    mobileBtn.addEventListener('click', () => {      navLinks.classList.toggle('show');    });    serviceDropdown.addEventListener('click', (e) => {      if (window.innerWidth <= 768) {        e.preventDefault();        serviceDropdown.classList.toggle('open');      }    });  </script></nav>  <!-- Hero Section --><section id="iot-ot-hero" style="padding:120px 5vw 40px; text-align:center; color:#e0f7fa; background-color:#0a0a0a; position:relative; z-index:2;">  <div style="max-width:1000px; margin:0 auto;">    <h1 style="color:#00ffff; font-size:clamp(2rem,4vw,3rem); margin:0 0 20px; text-shadow:0 0 8px #00ffff;">      IoT/OT Security    </h1>    <p style="font-size:clamp(1rem,2.5vw,1.125rem); line-height:1.8; text-align:justify; margin:0 auto;">      IoT/OT penetration testing is crucial for securing connected devices and industrial systems. At BlockSecbrain, our expert researchers provide thorough testing of devices, protocols, and networks, ensuring maximum security with minimal risk</p>  </div></section>  <!-- Features Grid -->  <section class="features-container">    <h2 style="text-align:center; color:#00ffff; margin-bottom:30px;">Test Categories for IoT Penetration Testing</h2>    <div class="features-grid">      <div class="feature-card">        <div class="feature-icon">🔌</div>        <h3>Device & Firmware Testing</h3>        <p>Assess IoT device security, firmware vulnerabilities, and update mechanisms to prevent exploits.</p>      </div>      <div class="feature-card">        <div class="feature-icon">🌐</div>        <h3>Network & Protocol Analysis</h3>        <p>Evaluate communication protocols, network services, and data transmission to identify weak points.</p>      </div>      <div class="feature-card">        <div class="feature-icon">🔐</div>        <h3>Data & Access Control</h3>        <p>Test encryption, authentication, and access mechanisms to secure sensitive IoT/OT data.</p>      </div>      <div class="feature-card">        <div class="feature-icon">⚙️</div>        <h3>Industrial OT Security</h3>        <p>Protect SCADA and industrial control systems by identifying configuration issues and vulnerabilities.</p>      </div>      <div class="feature-card">        <div class="feature-icon">📡</div>        <h3>Remote & Cloud Interfaces</h3>        <p>Assess security of cloud-connected IoT systems, mobile apps, and remote management platforms.</p>      </div>      <div class="feature-card">        <div class="feature-icon">🛡️</div>        <h3>Risk & Compliance Advisory</h3>        <p>Provide actionable recommendations to reduce risk and meet industry compliance requirements.</p>      </div>    </div>  </section><div style="margin-top:40px; text-align:center;">  <p style="max-width:800px; margin:0 auto 20px; font-size:clamp(1rem, 2.5vw, 1.125rem); line-height:1.6; color:#e0f7fa;">    Whether you’re just exploring or ready to secure your systems, our team is here to help. We provide practical assessments, clear insights, and advice you can actually use. Want to see how our IoT/OT penetration testing can help your organisation? Get in touch for a free consultation today.</p></div>	<div class="hero-buttons">	  <a href="#" class="btn-secondary" style="">Get in Touch</a>    </div>  <!-- Footer -->  <footer class="footer" style="background:#000; color:#fff; padding:40px 20px; text-align:center;">    <div class="footer-links" style="display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-bottom:20px;">      <a href="#">Privacy Policy</a><span>•</span>      <a href="#">Terms of Service</a><span>•</span>      <a href="#">Documentation</a><span>•</span>      <a href="#">Contact Support</a>   	</div>    <p>&copy; 2025 BlockSecBrain. All Rights Reserved.</p>    <p class="footer-credit">Made by Linuxr00t TechLab</p>  </footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IoT/OT Security - BlockSecBrain</title>
+  <link href="templatemo-nexus-style.css" rel="stylesheet">
+
+  <style>
+    /* Navigation */
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background-color: #000;
+      flex-wrap: wrap;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-img { height: 40px; width: auto; display: block; }
+    .logo-text { color: #fff; font-size: 1.2rem; font-weight: bold; white-space: nowrap; }
+    .nav-links { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
+    .nav-links li a { color: #fff; text-decoration: none; font-weight: 500; }
+    .nav-bottom .cyber-button { background-color: #0ff; color: #000; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-weight: bold; }
+    .mobile-menu-button { display: none; background: none; border: none; cursor: pointer; }
+    .hamburger span { display: block; width: 25px; height: 3px; background-color: #fff; margin: 4px 0; }
+
+    /* Hero Section */
+    .hero-container { text-align: center; padding: 60px 20px; }
+    .hero-title { font-size: 3rem; }
+    .hero-subtitle { max-width: 1000px; margin: 0 auto; padding: 0 40px; font-size: 1.4rem; line-height: 1.9; text-align: justify; }
+    .hero-buttons { margin-top: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .btn-primary, .btn-secondary { padding: 12px 24px; border-radius: 4px; text-decoration: none; font-weight: bold; transition: background 0.3s ease; }
+    .btn-primary { background-color: #0ff; color: #000; }
+    .btn-secondary { background-color: transparent; border: 2px solid #0ff; color: #0ff; }
+
+    /* Features Grid */
+    .features-container { max-width: 1200px; margin: 0 auto; margin-top: 50px; }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .feature-card { background-color: #111; padding: 1.25rem; border-radius: 8px; color: #fff; }
+    .feature-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+
+    /* Footer */
+    .footer-content { text-align: center; padding: 20px; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .footer-bottom p { margin: 5px 0; font-size: 0.9rem; }
+
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+      .nav-links { display: none; flex-direction: column; width: 100%; }
+      .nav-links.show { display: flex; }
+      .mobile-menu-button { display: block; }
+    }
+  </style>
+</head>
+
+<body id="top">
+  <!-- Background and Visual Effects -->
+  <div class="cyber-bg"><div class="cyber-gradient"></div></div>
+  <div class="particles" id="particlesContainer"></div>
+  <div class="data-streams" id="dataStreams"></div>
+  <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
+  <div class="grid-overlay"><div class="grid-lines"></div><div class="grid-glow"></div></div>
+  <div class="scanlines"></div><div class="noise-overlay"></div>
+
+  <!-- Navigation -->
+   <div class="cyber-bg">
+    <div class="cyber-gradient"></div>
+    <div class="matrix-rain" id="matrixRain"></div>
+  </div>
+  <div class="particles" id="particlesContainer"></div>
+  <div class="data-streams" id="dataStreams"></div>
+  <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
+  <div class="grid-overlay"><div class="grid-lines"></div><div class="grid-glow"></div></div>
+  <div class="scanlines"></div><div class="noise-overlay"></div>
+
+  <!-- Navigation -->
+<nav>
+  <style>
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      background-color: #0a0a23;
+      padding: 10px 20px;
+      font-family: Arial, sans-serif;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .logo-img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li {
+      position: relative;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #fff;
+      padding: 8px 12px;
+      display: block;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #1a1a3d;
+      min-width: 280px;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      z-index: 1000;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-section {
+      margin-bottom: 15px;
+    }
+
+    .dropdown-section-title {
+      color: #00ffff;
+      font-weight: bold;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .dropdown-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .dropdown-section ul li a {
+      color: #fff;
+      font-size: 13px;
+      padding: 6px 0;
+      display: block;
+      text-decoration: none;
+    }
+
+    .cyber-button {
+      background-color: #00ffcc;
+      color: #000;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .mobile-menu-button {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      margin: 5px 0;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .mobile-menu-button {
+        display: block;
+      }
+
+      .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        padding: 10px 0;
+      }
+
+      .dropdown:hover .dropdown-menu {
+        display: none;
+      }
+
+      .dropdown.open .dropdown-menu {
+        display: block;
+      }
+    }
+  </style>
+
+  <div class="nav-container">
+    <a href="#top" class="logo">
+      <img src="images/White.svg" alt="BlockSecBrain Logo" class="logo-img" />
+      <span class="logo-text">BlockSecBrain</span>
+    </a>
+
+    <button class="mobile-menu-button" id="mobileMenuBtn">
+      <div class="hamburger"><span></span><span></span><span></span></div>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+
+      <li class="dropdown" id="serviceDropdown">
+        <a href="#">Service</a>
+        <div class="dropdown-menu">
+          <div class="dropdown-section">
+            <div class="dropdown-section-title">Managed Services</div>
+            <ul>
+              <li><a href="web-application-security.html">Web Application Security</a></li>
+              <li><a href="mobile-application-security.html">Mobile Application Security</a></li>
+              <li><a href="cloud-security.html">Cloud Security</a></li>
+              <li><a href="firewall-infrastructure-security.html">Firewall and Core Infrastructure Security</a></li>
+              <li><a href="iot-ot-security.html">IoT/OT Security</a></li>
+              <li><a href="automotive-security.html">Automotive Security</a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-bottom"><a href="#" class="cyber-button">Access Terminal</a></div>
+  </div>
+
+  <script>
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    const serviceDropdown = document.getElementById('serviceDropdown');
+
+    mobileBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+
+    serviceDropdown.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        serviceDropdown.classList.toggle('open');
+      }
+    });
+  </script>
+</nav>
+
+  <!-- Hero Section -->
+<section id="iot-ot-hero" style="padding:120px 5vw 40px; text-align:center; color:#e0f7fa; background-color:#0a0a0a; position:relative; z-index:2;">
+  <div style="max-width:1000px; margin:0 auto;">
+    <h1 style="color:#00ffff; font-size:clamp(2rem,4vw,3rem); margin:0 0 20px; text-shadow:0 0 8px #00ffff;">
+      IoT/OT Security
+    </h1>
+    <p style="font-size:clamp(1rem,2.5vw,1.125rem); line-height:1.8; text-align:justify; margin:0 auto;">
+      IoT/OT penetration testing is crucial for securing connected devices and industrial systems. At BlockSecbrain, our expert researchers provide thorough testing of devices, protocols, and networks, ensuring maximum security with minimal risk</p>
+  </div>
+</section>
+
+  <!-- Features Grid -->
+  <section class="features-container">
+    <h2 style="text-align:center; color:#00ffff; margin-bottom:30px;">Test Categories for IoT Penetration Testing
+</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🔌</div>
+        <h3>Device & Firmware Testing</h3>
+        <p>Assess IoT device security, firmware vulnerabilities, and update mechanisms to prevent exploits.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌐</div>
+        <h3>Network & Protocol Analysis</h3>
+        <p>Evaluate communication protocols, network services, and data transmission to identify weak points.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔐</div>
+        <h3>Data & Access Control</h3>
+        <p>Test encryption, authentication, and access mechanisms to secure sensitive IoT/OT data.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚙️</div>
+        <h3>Industrial OT Security</h3>
+        <p>Protect SCADA and industrial control systems by identifying configuration issues and vulnerabilities.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📡</div>
+        <h3>Remote & Cloud Interfaces</h3>
+        <p>Assess security of cloud-connected IoT systems, mobile apps, and remote management platforms.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🛡️</div>
+        <h3>Risk & Compliance Advisory</h3>
+        <p>Provide actionable recommendations to reduce risk and meet industry compliance requirements.</p>
+      </div>
+    </div>
+  </section>
+<div style="margin-top:40px; text-align:center;">
+  <p style="max-width:800px; margin:0 auto 20px; font-size:clamp(1rem, 2.5vw, 1.125rem); line-height:1.6; color:#e0f7fa;">
+    Whether you’re just exploring or ready to secure your systems, our team is here to help. We provide practical assessments, clear insights, and advice you can actually use. Want to see how our IoT/OT penetration testing can help your organisation? Get in touch for a free consultation today.</p>
+</div>
+	<div class="hero-buttons">
+	  <a href="#" class="btn-secondary" style="">Get in Touch</a>
+    </div>
+
+  <!-- Footer -->
+  <footer class="footer" style="background:#000; color:#fff; padding:40px 20px; text-align:center;">
+    <div class="footer-links" style="display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-bottom:20px;">
+      <a href="#">Privacy Policy</a><span>•</span>
+      <a href="#">Terms of Service</a><span>•</span>
+      <a href="#">Documentation</a><span>•</span>
+      <a href="#">Contact Support</a>
+   	</div>
+    <p>&copy; 2025 BlockSecBrain. All Rights Reserved.</p>
+    <p class="footer-credit">Made by Linuxr00t TechLab</p>
+  </footer>
+</body>
+</html>
