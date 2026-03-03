@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BlockSecBrain Web Application Penetration Testing — OWASP Top 10, SANS/CWE 25, manual &amp; AI-enhanced analysis to uncover injection flaws, broken access control, and more.">
+  <title>Web Application Security | BlockSecBrain</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-body">
+
+  <!-- ======== NAVIGATION ======== -->
+  <nav class="site-nav" id="top">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <img src="images/White.svg" alt="BlockSecBrain Logo" onerror="this.style.display='none'">
+        BlockSecBrain
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li>
+          <button aria-haspopup="true">Services <span class="dropdown-arrow">▾</span></button>
+          <ul class="nav-dropdown">
+            <li><span class="section-label">AI-Powered Services</span></li>
+            <li><a href="ai-security.html"><span class="d-icon">🤖</span> AI Security Assessment <span class="nav-new-badge">NEW</span></a></li>
+            <hr>
+            <li><span class="section-label">Managed Services</span></li>
+            <li><a href="web-application-security.html"><span class="d-icon">🌐</span> Web Application Security</a></li>
+            <li><a href="mobile-application-security.html"><span class="d-icon">📱</span> Mobile Application Security</a></li>
+            <li><a href="cloud-security.html"><span class="d-icon">☁️</span> Cloud Security</a></li>
+            <li><a href="firewall-infrastructure-security.html"><span class="d-icon">🔐</span> Firewall &amp; Infrastructure</a></li>
+            <li><a href="iot-ot-security.html"><span class="d-icon">🔌</span> IoT/OT Security</a></li>
+            <li><a href="automotive-security.html"><span class="d-icon">🚗</span> Automotive Security</a></li>
+          </ul>
+        </li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <a href="index.html#contact" class="nav-cta">⚡ Access Terminal</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="nav-mobile" id="mobileNav">
+    <span class="mobile-section-label">Navigation</span>
+    <a href="index.html">🏠 Home</a>
+    <a href="index.html#pricing">💰 Pricing</a>
+    <a href="about.html">ℹ️ About</a>
+    <a href="index.html#contact">✉️ Contact</a>
+    <span class="mobile-section-label">Services</span>
+    <a href="web-application-security.html">🌐 Web Application Security</a>
+    <a href="mobile-application-security.html">📱 Mobile Application Security</a>
+    <a href="cloud-security.html">☁️ Cloud Security</a>
+    <a href="firewall-infrastructure-security.html">🔐 Firewall &amp; Infrastructure</a>
+    <a href="iot-ot-security.html">🔌 IoT/OT Security</a>
+    <a href="automotive-security.html">🚗 Automotive Security</a>
+    <a href="index.html#contact" class="nav-cta-mobile">⚡ Access Terminal</a>
+  </div>
+
+  <!-- ======== SERVICE HERO ======== -->
+  <section class="service-hero">
+    <div class="container">
+      <div class="service-hero-inner">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-sep">/</span>
+          <a href="index.html#features">Services</a>
+          <span class="breadcrumb-sep">/</span>
+          <span>Web Application Security</span>
+        </div>
+        <span class="service-hero-icon">🌐</span>
+        <div class="tag">VAPT Service</div>
+        <h1>Web Application <span>Penetration Testing</span></h1>
+        <p>Web applications are the most targeted assets by attackers. At BlockSecBrain, our researchers identify all input fields, detect technical, business logic, and network-level vulnerabilities, and exploit them where suitable to demonstrate proof-of-concepts. Testing is performed using manual, automated, and hybrid approaches.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== METHODOLOGY ======== -->
+  <section class="methodology-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="tag">Our Methodology</div>
+        <div class="section-divider"><span></span></div>
+        <h2>Testing Methodology &amp; Stages</h2>
+        <p>A structured, repeatable process from reconnaissance to verified remediation.</p>
+      </div>
+
+      <!-- AI Callout Banner -->
+      <div class="ai-callout">
+        <div class="ai-callout-text">
+          <p>🤖 AI-Enhanced Testing Available</p>
+          <p>This service now includes AI-assisted analysis — faster recon, deeper logic flaw detection, and AI-powered exploit chaining on top of our proven manual methodology.</p>
+        </div>
+        <a href="ai-security.html" class="ai-callout-link">Explore AI Security →</a>
+      </div>
+
+      <div class="method-grid">
+        <div class="method-card" data-step="01">
+          <span class="method-icon">🕵️</span>
+          <h3>Information Gathering</h3>
+          <p>Collect all publicly accessible passive and active information about the web application and sensitive data that should not be exposed.</p>
+        </div>
+        <div class="method-card" data-step="02">
+          <span class="method-icon">⚠️</span>
+          <h3>Vulnerability Identification</h3>
+          <p>Manual tests and vulnerability scanners are used to detect security issues, confirm vulnerabilities, and eliminate false positives — including OWASP and business logic checks.</p>
+        </div>
+        <div class="method-card" data-step="03">
+          <span class="method-icon">💥</span>
+          <h3>Exploit Progress</h3>
+          <p>Identify available exploits, gather sensitive information, and — if agreed with the client — test post-exploitation scenarios to demonstrate full impact.</p>
+        </div>
+        <div class="method-card" data-step="04">
+          <span class="method-icon">📝</span>
+          <h3>Report Writing</h3>
+          <p>Document all findings with risk ratings and provide actionable recommendations to resolve each security issue clearly and effectively.</p>
+        </div>
+        <div class="method-card" data-step="05">
+          <span class="method-icon">✅</span>
+          <h3>Verification Test</h3>
+          <p>After fixes are applied, we perform a free verification test to ensure all vulnerabilities have been properly addressed.</p>
+        </div>
+        <div class="method-card" data-step="06">
+          <span class="method-icon">🔄</span>
+          <h3>Full Coverage Scope</h3>
+          <p>Our testing covers subdomain discovery, session testing, business logic validation, code review, advanced injection testing, DoS checks, and more.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== CTA ======== -->
+  <section class="service-cta-section">
+    <div class="container">
+      <div class="cta-box">
+        <div class="cta-box-text">
+          <p>Ready to Secure Your Web Application?</p>
+          <p>Get a free consultation and discover how our web application penetration testing can protect your business from real-world threats.</p>
+        </div>
+        <div class="cta-box-actions">
+          <a href="index.html#contact" class="btn-primary">⚡ Get in Touch</a>
+          <a href="index.html#pricing" class="btn-outline">View Pricing</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">Block<span>Sec</span>Brain</div>
+        <div class="footer-links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-of-service.html">Terms of Service</a>
+          <a href="about.html">About</a>
+          <a href="/cdn-cgi/l/email-protection#bccfddd0d9cffcded0d3dfd7cfd9dfdeceddd5d292dfd3d1">Contact Support</a>
+        </div>
+        <div class="footer-copy">© 2026 <span>BlockSecBrain</span>. All Rights Reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListen);
+    mobileNav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => mobileNav.classList.remove('open')));
+  </script>
+  <script src="chatbot-widget.js"></script>
+</body>
+</html>

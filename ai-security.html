@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BlockSecBrain AI Security Assessment — LLM red teaming, prompt injection testing, agentic AI security, shadow AI discovery, and OWASP Top 10 for LLMs. Protect your AI before attackers exploit it.">
+  <title>AI Security Assessment | BlockSecBrain</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-body">
+
+  <!-- ======== NAVIGATION ======== -->
+  <nav class="site-nav" id="top">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <img src="images/White.svg" alt="BlockSecBrain Logo" onerror="this.style.display='none'">
+        BlockSecBrain
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li>
+          <button aria-haspopup="true">Services <span class="dropdown-arrow">▾</span></button>
+          <ul class="nav-dropdown">
+            <li><span class="section-label">AI-Powered Services</span></li>
+            <li><a href="ai-security.html"><span class="d-icon">🤖</span> AI Security Assessment <span class="nav-new-badge">NEW</span></a></li>
+            <hr>
+            <li><span class="section-label">Managed Services</span></li>
+            <li><a href="web-application-security.html"><span class="d-icon">🌐</span> Web Application Security</a></li>
+            <li><a href="mobile-application-security.html"><span class="d-icon">📱</span> Mobile Application Security</a></li>
+            <li><a href="cloud-security.html"><span class="d-icon">☁️</span> Cloud Security</a></li>
+            <li><a href="firewall-infrastructure-security.html"><span class="d-icon">🔐</span> Firewall &amp; Infrastructure</a></li>
+            <li><a href="iot-ot-security.html"><span class="d-icon">🔌</span> IoT/OT Security</a></li>
+            <li><a href="automotive-security.html"><span class="d-icon">🚗</span> Automotive Security</a></li>
+          </ul>
+        </li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <a href="index.html#contact" class="nav-cta">⚡ Access Terminal</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="nav-mobile" id="mobileNav">
+    <span class="mobile-section-label">Navigation</span>
+    <a href="index.html">🏠 Home</a>
+    <a href="index.html#pricing">💰 Pricing</a>
+    <a href="about.html">ℹ️ About</a>
+    <a href="index.html#contact">✉️ Contact</a>
+    <span class="mobile-section-label">AI-Powered</span>
+    <a href="ai-security.html">🤖 AI Security Assessment — NEW</a>
+    <span class="mobile-section-label">Services</span>
+    <a href="web-application-security.html">🌐 Web Application Security</a>
+    <a href="mobile-application-security.html">📱 Mobile Application Security</a>
+    <a href="cloud-security.html">☁️ Cloud Security</a>
+    <a href="firewall-infrastructure-security.html">🔐 Firewall &amp; Infrastructure</a>
+    <a href="iot-ot-security.html">🔌 IoT/OT Security</a>
+    <a href="automotive-security.html">🚗 Automotive Security</a>
+    <a href="index.html#contact" class="nav-cta-mobile">⚡ Access Terminal</a>
+  </div>
+
+  <!-- ======== AI HERO ======== -->
+  <section class="ai-hero">
+    <div class="container">
+      <div class="service-hero-inner" style="max-width:780px">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a><span class="breadcrumb-sep">/</span>
+          <a href="index.html#features">Services</a><span class="breadcrumb-sep">/</span>
+          <span>AI Security Assessment</span>
+        </div>
+        <div class="ai-badge">🤖 New Service — 2026</div>
+        <h1 class="ai-page-h1">
+          AI Security Assessment &amp; <span class="text-green">LLM Red Teaming</span>
+        </h1>
+        <p class="ai-page-lead">
+          Your organisation has deployed AI — but has anyone tested it the way an attacker would? At BlockSecBrain, we deliver specialised security assessments for LLMs, GenAI applications, agentic systems, and AI-integrated infrastructure. We apply the same adversarial mindset that drives our VAPT practice — now purpose-built for the probabilistic, semantic attack surface of modern AI.
+        </p>
+        <div class="hero-btns">
+          <a href="index.html#contact" class="btn-primary btn-green">⚡ Get AI Assessment</a>
+          <a href="#owasp" class="btn-outline btn-outline-green">View OWASP LLM Top 10 →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== THREAT STATS ======== -->
+  <section class="threat-stats">
+    <div class="container">
+      <div class="threat-stats-grid">
+        <div class="threat-stat">
+          <div class="threat-stat-num red">$10.5T</div>
+          <div class="threat-stat-label">Global cybercrime cost forecast 2025</div>
+          <div class="threat-stat-source">Source: Cybersecurity Ventures</div>
+        </div>
+        <div class="threat-stat">
+          <div class="threat-stat-num">73%</div>
+          <div class="threat-stat-label">Production AI deployments vulnerable to prompt injection</div>
+          <div class="threat-stat-source">Source: OWASP LLM Top 10, 2025</div>
+        </div>
+        <div class="threat-stat">
+          <div class="threat-stat-num green">77%</div>
+          <div class="threat-stat-label">Organisations already running GenAI in their security stack</div>
+          <div class="threat-stat-source">Source: State of AI Cybersecurity 2026</div>
+        </div>
+        <div class="threat-stat">
+          <div class="threat-stat-num red">46%</div>
+          <div class="threat-stat-label">Defenders say they're not prepared for AI-powered threats</div>
+          <div class="threat-stat-source">Source: State of AI Cybersecurity 2026</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== WHY AI SECURITY ======== -->
+  <section class="ai-section-pad">
+    <div class="container">
+      <div class="ai-alert-banner">
+        <span class="ai-alert-icon">⚠️</span>
+        <div class="ai-alert-text">
+          <p>The 2026 Threat Reality: AI Is Now Both the Shield and the Sword</p>
+          <p>Agentic AI systems with autonomous tool access, shadow AI deployments outside IT oversight, and LLM-powered applications connected to sensitive data have created an entirely new class of attack surface — one that traditional VAPT tools were never built to find. Prompt injection ranked #1 in OWASP's LLM Top 10 for the second consecutive year. Every enterprise deploying AI without adversarial testing is carrying invisible risk.</p>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <div class="tag" class="tag tag-green">Our AI Security Services</div>
+        <div class="section-divider"><span></span></div>
+        <h2>What We Test &amp; Secure</h2>
+        <p>Six specialised assessment tracks covering every layer of your AI ecosystem — from model behaviour to deployment infrastructure.</p>
+      </div>
+
+      <div class="ai-services-grid">
+
+        <div class="ai-service-card">
+          <span class="ai-card-icon">🧠</span>
+          <h3>LLM Security &amp; Red Teaming</h3>
+          <p>We adversarially test your large language models using multi-turn escalation, jailbreaking, and injection techniques. We measure attack success rates across categories, not just binary pass/fail, and provide guardrail hardening recommendations.</p>
+          <div class="ai-tag-list">
+            <span class="ai-tag-pill">Prompt Injection</span>
+            <span class="ai-tag-pill">Jailbreaking</span>
+            <span class="ai-tag-pill">System Prompt Leakage</span>
+            <span class="ai-tag-pill">Data Extraction</span>
+          </div>
+        </div>
+
+        <div class="ai-service-card">
+          <span class="ai-card-icon">🤖</span>
+          <h3>Agentic AI Security Assessment</h3>
+          <p>AI agents with tool access, file systems, APIs, and autonomous decision-making create devastating blast radii when compromised. We test agent workflows for indirect injection, privilege escalation, tool misuse, and trust boundary failures.</p>
+          <div class="ai-tag-list">
+            <span class="ai-tag-pill">Tool Call Abuse</span>
+            <span class="ai-tag-pill">Indirect Injection</span>
+            <span class="ai-tag-pill">Trust Boundary</span>
+            <span class="ai-tag-pill">Kill Switch Testing</span>
+          </div>
+        </div>
+
+        <div class="ai-service-card">
+          <span class="ai-card-icon">📦</span>
+          <h3>GenAI Application Security</h3>
+          <p>Applications built on GPT, Claude, Gemini, or open-source LLMs inherit both model vulnerabilities and app-layer risks. We test RAG pipelines, vector databases, API integrations, and output handling for injection, leakage, and code execution paths.</p>
+          <div class="ai-tag-list">
+            <span class="ai-tag-pill">RAG Security</span>
+            <span class="ai-tag-pill">Vector DB Injection</span>
+            <span class="ai-tag-pill">Output Sanitisation</span>
+            <span class="ai-tag-pill">RCE via LLM Output</span>
+          </div>
+        </div>
+
+        <div class="ai-service-card">
+          <span class="ai-card-icon">👁️</span>
+          <h3>Shadow AI Discovery &amp; Governance</h3>
+          <p>Teams across your enterprise are quietly deploying LLMs outside IT oversight. We identify shadow AI deployments, unmonitored data flows, and unsanctioned model endpoints — before they become compliance gaps or persistent leakage channels.</p>
+          <div class="ai-tag-list">
+            <span class="ai-tag-pill">AI Asset Discovery</span>
+            <span class="ai-tag-pill">Data Flow Mapping</span>
+            <span class="ai-tag-pill">Compliance Gap Audit</span>
+            <span class="ai-tag-pill">Governance Framework</span>
+          </div>
+        </div>
+
+        <div class="ai-service-card">
+          <span class="ai-card-icon">🔗</span>
+          <h3>AI Supply Chain Security</h3>
+          <p>Third-party LLM providers, open-weight models, fine-tuning datasets, and ML dependencies all extend your attack surface. We assess model provenance, training data integrity, plugin ecosystems, and vendor security posture.</p>
+          <div class="ai-tag-list">
+            <span class="ai-tag-pill">Model Provenance</span>
+            <span class="ai-tag-pill">Plugin Security</span>
+            <span class="ai-tag-pill">Dataset Integrity</span>
+            <span class="ai-tag-pill">Vendor Risk</span>
+          </div>
+        </div>
+
+        <div class="ai-service-card">
+          <span class="ai-card-icon">🛡️</span>
+          <h3>AI-Assisted VAPT (All Services)</h3>
+          <p>Across all our existing VAPT services — web, mobile, cloud, IoT, automotive — we now layer in AI-enhanced analysis. AI accelerates recon, surfaces complex business logic flaws, identifies anomalous patterns, and generates targeted exploit chains faster than traditional methods alone.</p>
+          <div class="ai-tag-list">
+            <span class="ai-tag-pill">AI-Enhanced Recon</span>
+            <span class="ai-tag-pill">Logic Flaw Detection</span>
+            <span class="ai-tag-pill">Faster Coverage</span>
+            <span class="ai-tag-pill">Hybrid Testing</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== OWASP TOP 10 LLM ======== -->
+  <section class="ai-section-pad2" id="owasp">
+    <div class="container">
+      <div class="section-header">
+        <div class="tag" class="tag tag-green">Assessment Framework</div>
+        <div class="section-divider"><span></span></div>
+        <h2>OWASP Top 10 for LLM Applications (2025)</h2>
+        <p>Our AI security assessments are aligned to the OWASP LLM Top 10 — the industry standard for LLM vulnerability testing, updated in 2025 to reflect real production incidents.</p>
+      </div>
+
+      <div class="owasp-grid">
+        <div class="owasp-item">
+          <span class="owasp-num critical">LLM01</span>
+          <div class="owasp-text">
+            <h4>Prompt Injection</h4>
+            <p>#1 for 2 consecutive years. Appears in 73% of production AI deployments. Direct and indirect attack vectors. We test both.</p>
+          </div>
+        </div>
+        <div class="owasp-item">
+          <span class="owasp-num critical">LLM02</span>
+          <div class="owasp-text">
+            <h4>Sensitive Information Disclosure</h4>
+            <p>Jumped from 6th to 2nd in 2025. PII leakage, system prompt exposure, API key extraction through model outputs.</p>
+          </div>
+        </div>
+        <div class="owasp-item">
+          <span class="owasp-num">LLM03</span>
+          <div class="owasp-text">
+            <h4>Supply Chain Vulnerabilities</h4>
+            <p>Climbed to 3rd place. Compromised model weights, malicious fine-tuning datasets, vulnerable dependencies.</p>
+          </div>
+        </div>
+        <div class="owasp-item">
+          <span class="owasp-num">LLM04</span>
+          <div class="owasp-text">
+            <h4>Data &amp; Model Poisoning</h4>
+            <p>Corrupted training data to introduce backdoors, bias model behaviour, or degrade performance in targeted ways.</p>
+          </div>
+        </div>
+        <div class="owasp-item">
+          <span class="owasp-num">LLM05</span>
+          <div class="owasp-text">
+            <h4>Improper Output Handling</h4>
+            <p>Unsanitised LLM output passed to exec/eval, SQL builders, or HTML renderers — leading to RCE, XSS, command injection.</p>
+          </div>
+        </div>
+        <div class="owasp-item">
+          <span class="owasp-num">LLM06</span>
+          <div class="owasp-text">
+            <h4>Excessive Agency</h4>
+            <p>New in 2025. AI agents with overly broad permissions taking autonomous actions — file writes, API calls, financial transactions.</p>
+          </div>
+        </div>
+        <div class="owasp-item">
+          <span class="owasp-num">LLM07</span>
+          <div class="owasp-text">
+            <h4>System Prompt Leakage</h4>
+            <p>New in 2025. Extraction of proprietary system prompts, business logic, and configuration via adversarial queries.</p>
+          </div>
+        </div>
+        <div class="owasp-item">
+          <span class="owasp-num">LLM08</span>
+          <div class="owasp-text">
+            <h4>Vector &amp; Embedding Weaknesses</h4>
+            <p>New in 2025. RAG data store poisoning, cross-user data contamination, insecure vector database access controls.</p>
+          </div>
+        </div>
+        <div class="owasp-item">
+          <span class="owasp-num">LLM09</span>
+          <div class="owasp-text">
+            <h4>Misinformation</h4>
+            <p>New in 2025. Hallucination exploitation, AI-generated fraud, disinformation injection into business workflows.</p>
+          </div>
+        </div>
+        <div class="owasp-item">
+          <span class="owasp-num">LLM10</span>
+          <div class="owasp-text">
+            <h4>Unbounded Consumption</h4>
+            <p>New in 2025. Resource exhaustion attacks — token flooding, API abuse, denial-of-wallet, and inference cost attacks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== OUR PROCESS ======== -->
+  <section class="ai-section-pad2 bg-surface">
+    <div class="container">
+      <div class="section-header">
+        <div class="tag" class="tag tag-green">How We Work</div>
+        <div class="section-divider"><span></span></div>
+        <h2>AI Security Assessment Process</h2>
+        <p>A structured, repeatable process aligned to enterprise AI deployment realities and emerging adversarial research.</p>
+      </div>
+      <div class="process-timeline">
+        <div class="process-step">
+          <div class="process-circle">🗺️</div>
+          <h4>AI Asset Mapping</h4>
+          <p>Identify all LLMs, agents, integrations, and shadow AI deployments across your environment.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-circle">🎯</div>
+          <h4>Threat Modelling</h4>
+          <p>Map attacker paths, trust boundaries, data flows, and tool access specific to your AI architecture.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-circle">⚔️</div>
+          <h4>Adversarial Testing</h4>
+          <p>Manual red teaming plus automated probing — measuring attack success rates, not just pass/fail.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-circle">📋</div>
+          <h4>Risk-Rated Report</h4>
+          <p>Every finding mapped to OWASP LLM Top 10, blast radius assessed, remediation layer specified.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-circle">✅</div>
+          <h4>Guardrail Verification</h4>
+          <p>Free re-test after fixes are applied. We confirm attack success rate drops below acceptable thresholds.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== MARKET CONTEXT ======== -->
+  <section class="ai-section-pad3">
+    <div class="container">
+      <div class="section-header">
+        <div class="tag" class="tag tag-green">2026 Threat Landscape</div>
+        <div class="section-divider"><span></span></div>
+        <h2>Why AI Security Can't Wait</h2>
+        <p>The 2026 threat landscape has fundamentally shifted. Here's what the industry data is telling us.</p>
+      </div>
+      <div class="method-grid">
+        <div class="method-card">
+          <span class="method-icon">⚡</span>
+          <h3>Agentic AI — New Attack Class</h3>
+          <p>Autonomous AI agents with tool access represent a new class of threat. When an agent is compromised via prompt injection, attackers can trigger file writes, API calls, data exfiltration — and transactions — without human awareness. Adversarial testing of agent workflows is no longer optional.</p>
+        </div>
+        <div class="method-card">
+          <span class="method-icon">👻</span>
+          <h3>Shadow AI — Invisible Risk</h3>
+          <p>By 2026, shadow LLMs deployed outside IT oversight represent a significant invisible attack surface. Teams deploy private or third-party models against corporate data without approval. Sensitive information is already circulating through unapproved AI systems at most enterprises.</p>
+        </div>
+        <div class="method-card">
+          <span class="method-icon">🔴</span>
+          <h3>AI-Powered Attacker Toolkits</h3>
+          <p>Cybercriminals are now using AI to automate reconnaissance, scale phishing campaigns, and carry out attacks with minimal expertise. Prompt injection playbooks are being sold on the dark web. AI has levelled the playing field between skilled attackers and opportunistic threat actors.</p>
+        </div>
+        <div class="method-card">
+          <span class="method-icon">📜</span>
+          <h3>Regulatory Pressure is Mounting</h3>
+          <p>AI governance mandates are accelerating globally. GDPR enforcement around AI-driven data processing, emerging EU AI Act obligations, and sector-specific requirements are pushing organisations to demonstrate AI security posture — or face significant penalties.</p>
+        </div>
+        <div class="method-card">
+          <span class="method-icon">🔗</span>
+          <h3>Every Dependency Is an Attack Surface</h3>
+          <p>AI models, supply chains, APIs, and business relationships all now double as attack vectors. Ransomware is evolving beyond encryption — it exploits trust itself. Agentic AI will handle portions of the ransomware attack chain autonomously, including recon and vulnerability scanning.</p>
+        </div>
+        <div class="method-card">
+          <span class="method-icon">🛡️</span>
+          <h3>Defenders Can Regain the Advantage</h3>
+          <p>96% of security professionals agree AI meaningfully improves speed and efficiency of security work. Organisations investing in AI-aware security programmes — continuous red teaming, anomaly detection, and guardrail enforcement — are positioned to outpace attackers in 2026.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== CTA ======== -->
+  <section class="service-cta-section" class="ai-section-cta">
+    <div class="container">
+      <div class="cta-box" style="border-color:rgba(57,255,128,0.3);">
+        <div class="cta-box-text">
+          <p>Ready to Red Team Your AI?</p>
+          <p>Every AI system deployed without adversarial testing is carrying invisible risk. Let's find what your AI will do under attack — before someone else does.</p>
+        </div>
+        <div class="cta-box-actions">
+          <a href="index.html#contact" class="btn-primary btn-green">⚡ Start AI Assessment</a>
+          <a href="index.html#pricing" class="btn-outline" class="btn-outline btn-outline-green">View Pricing</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">Block<span>Sec</span>Brain</div>
+        <div class="footer-links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-of-service.html">Terms of Service</a>
+          <a href="about.html">About</a>
+          <a href="/cdn-cgi/l/email-protection#9eedfff2fbeddefcf2f1fdf5edfbfdfcecfff7f0b0fdf1f3">Contact Support</a>
+        </div>
+        <div class="footer-copy">© 2026 <span>BlockSecBrain</span>. All Rights Reserved.</div>
+      </div>
+    </div>
+  </footer>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListen);
+    mobileNav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => mobileNav.classList.remove('open')));
+  </script>
+  <script src="chatbot-widget.js"></script>
+</body>
+</html>
