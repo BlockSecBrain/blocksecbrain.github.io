@@ -9,7 +9,7 @@
  */
 (function () {
 
-  var WORKER_URL = 'https://bsb-ai-proxy.YOURNAME.workers.dev/';
+  var WORKER_URL = 'https://bsb-ai-proxy.thelinuxr00tking.workers.dev/';
 
   var QUICK = [
     { icon: '🔍', text: 'What is passive OSINT recon?' },
