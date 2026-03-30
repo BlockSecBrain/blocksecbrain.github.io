@@ -376,26 +376,74 @@ Ideal for startups, cost-sensitive teams, and large infrastructures with wildcar
         }
       });
     });
-    // ✅ Send Transmission — mailto form handler
-    function handleFormSubmit(e) {
+    // ✅ Send Transmission — Formspree silent background send
+    async function handleFormSubmit(e) {
       e.preventDefault();
+
       const name    = document.getElementById('name').value.trim();
       const email   = document.getElementById('email').value.trim();
       const service = document.getElementById('service').value;
       const message = document.getElementById('message').value.trim();
+      const btn     = document.querySelector('.form-submit');
 
       // Basic validation
       if (!name || !email || !message) {
-        alert('Please fill in your Name, Email, and Message before sending.');
+        showFormMsg('⚠️ Please fill in your Name, Email, and Message.', 'warn');
         return;
       }
 
-      const subject = encodeURIComponent(`BlockSecBrain Inquiry — ${service || 'General'} | From: ${name}`);
-      const body    = encodeURIComponent(
-        `Name: ${name}\nEmail: ${email}\nService: ${service || 'Not specified'}\n\nMessage:\n${message}`
-      );
+      // Button loading state
+      btn.disabled = true;
+      btn.textContent = '⏳ Transmitting...';
 
-      window.location.href = `mailto:salse@blocksecbrain.com?subject=${subject}&body=${body}`;
+      try {
+        // ✅ Replace YOUR_WEB3FORMS_ACCESS_KEY with your key from web3forms.com
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            access_key: 'd7a53461-cf51-4d90-a0c0-2d1240fceb17',
+            subject: `BlockSecBrain Inquiry — ${service || 'General'} | From: ${name}`,
+            from_name: 'BlockSecBrain Website',
+            name, email,
+            service: service || 'Not specified',
+            message
+          })
+        });
+
+        if (res.ok) {
+          showFormMsg('✅ Transmission received! We\'ll respond within 24 hours.', 'success');
+          document.getElementById('contactForm').reset();
+          btn.textContent = '✓ Sent!';
+        } else {
+          throw new Error('Server error');
+        }
+      } catch (err) {
+        showFormMsg('❌ Transmission failed. Please email us directly at salse@blocksecbrain.com', 'error');
+        btn.textContent = '⚡ Send Transmission';
+        btn.disabled = false;
+      }
+    }
+
+    function showFormMsg(text, type) {
+      // Remove existing message if any
+      const old = document.getElementById('formStatusMsg');
+      if (old) old.remove();
+
+      const colors = {
+        success: { bg: 'rgba(0,200,100,0.1)', border: '#00c864', color: '#00c864' },
+        error:   { bg: 'rgba(255,60,60,0.1)',  border: '#ff3c3c', color: '#ff6b6b' },
+        warn:    { bg: 'rgba(255,180,0,0.1)',  border: '#ffb400', color: '#ffb400' }
+      };
+      const c = colors[type];
+      const msg = document.createElement('p');
+      msg.id = 'formStatusMsg';
+      msg.textContent = text;
+      msg.style.cssText = `
+        margin-top: 14px; padding: 12px 16px; border-radius: 6px; font-size: 0.88em;
+        background: ${c.bg}; border: 1px solid ${c.border}; color: ${c.color};
+      `;
+      document.querySelector('.form-submit').after(msg);
     }
 
     // Nav active state on scroll
