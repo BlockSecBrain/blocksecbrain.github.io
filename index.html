@@ -269,9 +269,11 @@ Ideal for startups, cost-sensitive teams, and large infrastructures with wildcar
           <div class="tag">Initialize Contact</div>
           <h2>Let's Secure Your Stack</h2>
           <p>Whether you need a quick consultation or a full-scope engagement, our team is ready to provide honest, practical security guidance — no sales pressure, no product pushing.</p>
+
+          <!-- ✅ FIX 1: Removed CF obfuscation, added proper mailto: -->
           <div class="contact-detail">
             <span class="c-icon">✉️</span>
-            <span>Email: <a href="salse@blocksecbrain.com"><span class="__cf_email__" data-cfemail="salse@blocksecbrain.com">[email&#160;protected]</span></a></span>
+            <span>Email: <a href="mailto:salse@blocksecbrain.com">salse@blocksecbrain.com</a></span>
           </div>
           <div class="contact-detail">
             <span class="c-icon">⏱️</span>
@@ -320,8 +322,10 @@ Ideal for startups, cost-sensitive teams, and large infrastructures with wildcar
               <textarea id="message" name="message" placeholder="Describe your security requirements or ask us anything..."></textarea>
             </div>
             <button type="submit" class="form-submit">⚡ Send Transmission</button>
+
+            <!-- ✅ FIX 2: Removed CF obfuscation, added proper mailto: -->
             <p class="form-note">
-              Prefer direct email? Reach us at <a href="salse@blocksecbrain.com"><span class="__cf_email__" data-cfemail="salse@blocksecbrain.com">[email&#160;protected]</span></a><br>
+              Prefer direct email? Reach us at <a href="mailto:salse@blocksecbrain.com">salse@blocksecbrain.com</a><br>
               Your data is never shared. We respond within 24 hours.
             </p>
           </form>
@@ -339,7 +343,8 @@ Ideal for startups, cost-sensitive teams, and large infrastructures with wildcar
           <a href="privacy-policy.html">Privacy Policy</a>
           <a href="terms-of-service.html">Terms of Service</a>
           <a href="about.html">About</a>
-          <a href="info@blocksecbrain.com">Contact Support</a>
+          <!-- ✅ FIX 3: Added proper mailto: for footer support link -->
+          <a href="mailto:info@blocksecbrain.com">Contact Support</a>
         </div>
         <div class="footer-copy">
           © 2026 <span>BlockSecBrain</span>. All Rights Reserved. · Made by Linuxr00t TechLab
@@ -349,7 +354,8 @@ Ideal for startups, cost-sensitive teams, and large infrastructures with wildcar
   </footer>
 
   <!-- ======== JS ======== -->
-  <script data-cfasync="false" src="info@blocksecbrain.com"></script><script>
+  <!-- ✅ FIX 4: Removed broken <script src="info@blocksecbrain.com"> tag -->
+  <script>
     // Mobile hamburger toggle
     const hamburger = document.getElementById('hamburger');
     const mobileNav = document.getElementById('mobileNav');
