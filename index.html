@@ -321,7 +321,7 @@ Ideal for startups, cost-sensitive teams, and large infrastructures with wildcar
               <label for="message">Your Message</label>
               <textarea id="message" name="message" placeholder="Describe your security requirements or ask us anything..."></textarea>
             </div>
-            <button type="submit" class="form-submit">⚡ Send Transmission</button>
+            <button type="submit" class="form-submit" onclick="handleFormSubmit(event)">⚡ Send Transmission</button>
 
             <!-- ✅ FIX 2: Removed CF obfuscation, added proper mailto: -->
             <p class="form-note">
@@ -376,6 +376,28 @@ Ideal for startups, cost-sensitive teams, and large infrastructures with wildcar
         }
       });
     });
+    // ✅ Send Transmission — mailto form handler
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const name    = document.getElementById('name').value.trim();
+      const email   = document.getElementById('email').value.trim();
+      const service = document.getElementById('service').value;
+      const message = document.getElementById('message').value.trim();
+
+      // Basic validation
+      if (!name || !email || !message) {
+        alert('Please fill in your Name, Email, and Message before sending.');
+        return;
+      }
+
+      const subject = encodeURIComponent(`BlockSecBrain Inquiry — ${service || 'General'} | From: ${name}`);
+      const body    = encodeURIComponent(
+        `Name: ${name}\nEmail: ${email}\nService: ${service || 'Not specified'}\n\nMessage:\n${message}`
+      );
+
+      window.location.href = `mailto:salse@blocksecbrain.com?subject=${subject}&body=${body}`;
+    }
+
     // Nav active state on scroll
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links > li > a');
