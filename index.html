@@ -537,6 +537,72 @@
   <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script type="module" src="js/site.js"></script>
   <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('contactForm');
+      if (!form) return;
+
+      const submitBtn = form.querySelector('.form-submit');
+      const statusDisplay = form.querySelector('[data-form-status]');
+      const fallback = form.querySelector('[data-mailto-fallback]');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const honeypot = form.querySelector('.form-honeypot').value;
+        if (honeypot) {
+          statusDisplay.textContent = 'Transmission received. We will review it shortly.';
+          statusDisplay.setAttribute('data-state', 'success');
+          form.reset();
+          return;
+        }
+
+        const name = form.querySelector('#name').value.trim();
+        const email = form.querySelector('#email').value.trim();
+        const message = form.querySelector('#message').value.trim();
+        const service = form.querySelector('#service').value;
+
+        if (!name || !email || !message) {
+          statusDisplay.textContent = 'Please complete your name, email, and message before sending.';
+          statusDisplay.setAttribute('data-state', 'warning');
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Transmitting...';
+        statusDisplay.textContent = '';
+        statusDisplay.setAttribute('data-state', '');
+
+        try {
+          const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({
+              access_key: 'd7a53461-cf51-4d90-a0c0-2d1240fceb17',
+              from_name: 'BlockSecBrain Website',
+              subject: `BlockSecBrain Inquiry - ${service || 'General Inquiry'} | ${name}`,
+              name: name, email: email, service: service, message: message
+            })
+          });
+          if (!response.ok) throw new Error('Web3Forms error');
+          statusDisplay.textContent = 'Transmission received. A security specialist will respond within 24 hours.';
+          statusDisplay.setAttribute('data-state', 'success');
+          form.reset();
+        } catch (error) {
+          statusDisplay.textContent = 'The secure form endpoint is unavailable right now. Use the direct email fallback below.';
+          statusDisplay.setAttribute('data-state', 'error');
+          if (fallback) {
+            const subject = encodeURIComponent(`BlockSecBrain Inquiry - ${service || "General Inquiry"}`);
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nService: ${service || "General Inquiry"}\n\n${message}`);
+            fallback.setAttribute('href', `mailto:sales@blocksecbrain.com?subject=${subject}&body=${body}`);
+          }
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Request Assessment';
+        }
+      });
+    });
+  </script>
+  <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('sw.js')
