@@ -1,0 +1,17 @@
+{
+  "name": "BlockSecBrain Cybersecurity",
+  "short_name": "BlockSecBrain",
+  "description": "Independent cybersecurity specialists delivering AI security, firmware security, and infrastructure testing.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#030711",
+  "theme_color": "#030711",
+  "icons": [
+    {
+      "src": "images/White.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
