@@ -24,6 +24,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { PricingEstimator } from "@/components/sections/pricing-estimator";
+import { ValidationFlow } from "@/components/sections/validation-flow";
 import { ContactForm } from "@/components/sections/contact-form";
 import { SecurityGlossary } from "@/components/sections/security-glossary";
 import { SelfAssessment } from "@/components/sections/self-assessment";
@@ -60,15 +61,19 @@ const FAQ_ITEMS = [
   },
   {
     q: "Is a verification retest included after we patch?",
-    a: "Yes. Once your team has patched the reported findings, we re-test every remediated issue to confirm the fix is effective and the vulnerability is genuinely closed. This post-remediation retest is available at a minimal charge — far below a full paid add-on, with no hidden fees. We don't impose an arbitrary time limit, because patching timelines vary and new vulnerabilities emerge continuously.",
+    a: "Yes. Once your team has patched the reported findings, we re-test every remediated issue to confirm the fix is effective and the vulnerability is genuinely closed. Post-remediation retesting is offered at a reduced rate confirmed during scoping, with no hidden fees. We don't impose an arbitrary time limit, because patching timelines vary and new vulnerabilities emerge continuously.",
   },
   {
     q: "Can you map findings to our compliance frameworks?",
-    a: "Yes. We map findings to your specific frameworks — CRA, RED, IEC 62443, ISO 21434, ISO 27001, NIST CSF, OWASP, and others — in a single engagement, so you get compliance evidence alongside technical findings.",
+    a: "Yes. We map findings to your specific frameworks — CRA, RED, IEC 62443, ISO 27001, NIST CSF, OWASP, and others — in a single engagement, so you get compliance evidence alongside technical findings.",
   },
   {
     q: "How does the Hybrid 'pay-per-finding' model actually work?",
-    a: "You start with free or low-cost scans. You then pay only for verified, manually-confirmed vulnerabilities — priced per severity. No findings means you cover only a minimal hourly effort floor. It scales to any budget and eliminates the risk of paying for nothing.",
+    a: "You pay for verified vulnerabilities, priced per severity. A vulnerability becomes billable only after BlockSecBrain has independently reviewed it, reproduced it, and documented proof-of-concept evidence — unreproducible or duplicate issues are never charged. If no verified vulnerabilities are found, you pay only the agreed minimum engagement fee, which is set in writing during scoping before testing begins.",
+  },
+  {
+    q: "What counts as a 'verified' vulnerability?",
+    a: "A finding is verified only when it has been independently reproduced by BlockSecBrain against the agreed scope and documented with proof-of-concept evidence and a severity rating. Scanner output, theoretical issues, duplicates, and findings we cannot reproduce do not qualify and are never billed.",
   },
 ];
 
@@ -100,39 +105,6 @@ const PIPELINE_STEPS = [
   },
 ];
 
-const WORKFLOW_STEPS = [
-  {
-    num: "1",
-    title: "Scoping & Rules of Engagement",
-    desc: "Targets, depth, timing windows, safety constraints, and escalation contacts agreed before testing begins.",
-  },
-  {
-    num: "2",
-    title: "Threat Modelling",
-    desc: "Trust boundaries, attacker goals, and abuse cases mapped so effort follows real business risk.",
-  },
-  {
-    num: "3",
-    title: "Execution & Validation",
-    desc: "Manual, tool-assisted, and AI-accelerated testing with every finding reproduced and evidenced.",
-  },
-  {
-    num: "4",
-    title: "Reporting & Risk Rating",
-    desc: "Technical detail for engineers and a prioritised risk narrative for leadership, in one report set.",
-  },
-  {
-    num: "5",
-    title: "Remediation Support",
-    desc: "Direct access to the testing engineers while your teams design and implement fixes.",
-  },
-  {
-    num: "6",
-    title: "Verification Retest",
-    desc: "Once your team patches the findings, we re-test every fix to confirm the vulnerability is genuinely closed.",
-  },
-];
-
 const PRICING_TIERS = [
   {
     name: "Standard Security Testing",
@@ -152,13 +124,13 @@ const PRICING_TIERS = [
   {
     name: "Hybrid Security Testing",
     badge: "BEST VALUE",
-    desc: "Risk-free assessment. Start with free or low-cost scans. Pay only for verified vulnerabilities. No findings means you cover only minimal hourly effort.",
+    desc: "Outcome-based assessment. You pay for verified vulnerabilities — each one independently reviewed and reproduced by BlockSecBrain before it becomes a billable finding.",
     features: [
-      "Start free and pay only for findings",
+      "Pay per verified, reproduced finding",
       "Web, mobile, API, and infrastructure testing",
       "Source code and wildcard domain coverage",
       "Scalable to any budget or team size",
-      "Post-remediation retest at minimal cost",
+      "Post-remediation retest at a reduced rate",
     ],
     cta: "Start Hybrid Assessment",
     href: "/#contact",
@@ -309,10 +281,9 @@ function HeroTerminal() {
         <div className="rounded-xl bg-[#070b14]/90 p-4">
           {/* Title bar */}
           <div className="mb-3 flex items-center justify-between gap-2 border-b border-white/10 pb-2 font-mono text-xs text-muted-foreground">
-            <span>blocksecbrain — assessment engine</span>
-            <span className="flex items-center gap-1.5">
-              <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse-glow" />
-              ACTIVE
+            <span>blocksecbrain — sample report output</span>
+            <span className="rounded border border-white/10 px-1.5 py-0.5 text-[10px] uppercase tracking-wider">
+              Illustrative
             </span>
           </div>
           {/* Terminal content */}
@@ -324,27 +295,22 @@ function HeroTerminal() {
               <span className="text-foreground/70">--depth=full</span>
             </div>
             <div className="text-muted-foreground">
-              <span className="text-muted-foreground/60">[09:42:01]</span>{" "}
-              <span className="text-primary">▸</span> Initializing assessment engine…
+              <span className="text-primary">▸</span> Scope agreed &amp; rules of engagement confirmed
             </div>
             <div className="text-muted-foreground">
-              <span className="text-muted-foreground/60">[09:42:02]</span>{" "}
               <span className="text-primary">▸</span> Recon: DNS, WHOIS, cert transparency, subdomains
             </div>
             <div className="text-muted-foreground">
-              <span className="text-muted-foreground/60">[09:42:04]</span>{" "}
-              <span className="text-primary">▸</span> Firmware extraction: <span className="text-emerald-400">3 binaries</span> analyzed
+              <span className="text-primary">▸</span> Firmware extraction &amp; binary analysis
             </div>
             <div className="text-muted-foreground">
-              <span className="text-muted-foreground/60">[09:42:07]</span>{" "}
-              <span className="text-primary">▸</span> Cloud IAM attack-path mapping…
+              <span className="text-primary">▸</span> Cloud IAM attack-path mapping
             </div>
             <div className="text-muted-foreground">
-              <span className="text-muted-foreground/60">[09:42:09]</span>{" "}
-              <span className="text-primary">▸</span> LLM red-team: prompt injection battery (48 vectors)
+              <span className="text-primary">▸</span> LLM red-team: prompt injection &amp; tool-call abuse
             </div>
             <div className="mt-2 text-muted-foreground">
-              <span className="text-muted-foreground/60">[09:42:12]</span> Findings validated:
+              Findings independently reproduced and rated:
             </div>
             <div className="pl-3">
               <span className="sev-critical">[!!] CRITICAL</span>{" "}
@@ -365,10 +331,10 @@ function HeroTerminal() {
             <div className="mt-2 flex items-center justify-between border-t border-white/10 pt-2">
               <span>
                 <span className="text-emerald-400">[✓]</span>{" "}
-                <span className="text-foreground">7 findings validated</span>{" "}
-                <span className="animate-blink-cursor text-primary">▋</span>
+                <span className="text-foreground">
+                  Every finding evidenced with a proof-of-concept
+                </span>
               </span>
-              <span className="text-muted-foreground/60">completed in 11.4s</span>
             </div>
           </div>
         </div>
@@ -460,7 +426,7 @@ export default function HomePage() {
                   <Factory className="mb-2 size-5 text-primary" />
                   <p className="text-sm font-semibold">RED &amp; CRA Ready</p>
                   <p className="text-xs text-muted-foreground">
-                    IoT/OT product compliance: RED, CRA, IEC 62443, ISO 21434.
+                    IoT/OT product compliance: RED, CRA, IEC 62443.
                   </p>
                 </div>
                 <div className="rounded-xl border border-border/60 bg-card/50 p-4">
@@ -686,27 +652,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== Engagement Workflow ===== */}
-      <section className="border-b border-border/60 py-16 md:py-20">
+      {/* ===== Research & Validation Flow ===== */}
+      <section
+        id="validation"
+        className="border-b border-border/60 py-16 md:py-20"
+      >
         <div className="container mx-auto max-w-7xl px-4">
           <SectionHeading
-            label="Engagement Workflow"
-            title="How We Work With You"
-            desc="A predictable delivery model with defined checkpoints, so your teams know exactly what happens and when."
+            label="Research & Validation"
+            title="Pay only for verified vulnerabilities"
+            desc="BlockSecBrain focuses on validated security impact. Potential vulnerabilities are reviewed, reproduced and verified before they become accepted findings — so what you pay for is proven, not theoretical."
           />
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {WORKFLOW_STEPS.map((step) => (
-              <div
-                key={step.num}
-                className="relative rounded-xl border border-border/60 bg-card/50 p-5"
-              >
-                <span className="absolute -top-3 left-5 flex size-7 items-center justify-center rounded-full bg-primary font-mono text-sm font-bold text-primary-foreground">
-                  {step.num}
-                </span>
-                <h3 className="mt-2 text-sm font-semibold">{step.title}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{step.desc}</p>
-              </div>
-            ))}
+          <div className="mt-10">
+            <ValidationFlow />
           </div>
         </div>
       </section>

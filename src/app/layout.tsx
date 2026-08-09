@@ -17,6 +17,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://blocksecbrain.com"),
+  alternates: {
+    canonical: "/",
+  },
   title: {
     default: "BlockSecBrain — Independent Cybersecurity Services",
     template: "%s | BlockSecBrain",
@@ -46,6 +50,36 @@ export const metadata: Metadata = {
       "Firmware, hardware, IoT/OT, cloud, and AI security assessments. Unbiased, expert-driven security validation.",
     siteName: "BlockSecBrain",
     type: "website",
+    url: "https://blocksecbrain.com",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "BlockSecBrain — Independent Cybersecurity Services",
+    description:
+      "Firmware, hardware, IoT/OT, cloud, and AI security assessments. Unbiased, expert-driven security validation.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+// Organization structured data — factual only (name, URL, contact, services).
+// No awards, ratings, review counts, or employee claims.
+const ORGANIZATION_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "BlockSecBrain",
+  url: "https://blocksecbrain.com",
+  logo: "https://blocksecbrain.com/logo-white.svg",
+  description:
+    "Independent cybersecurity services. Firmware, hardware, IoT/OT, cloud, web, mobile, and AI security assessments.",
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "sales",
+    email: "sales@blocksecbrain.com",
+    availableLanguage: "English",
   },
 };
 
@@ -56,6 +90,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(ORGANIZATION_SCHEMA),
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
       >

@@ -82,12 +82,6 @@ export const GLOSSARY: GlossaryTerm[] = [
       "Health software security standard supporting FDA premarket cybersecurity documentation for medical devices.",
   },
   {
-    term: "ISO 21434",
-    category: "Compliance",
-    definition:
-      "The automotive cybersecurity engineering standard covering the full vehicle lifecycle.",
-  },
-  {
     term: "JTAG",
     category: "Firmware",
     definition:
@@ -176,12 +170,6 @@ export const GLOSSARY: GlossaryTerm[] = [
     category: "Cloud",
     definition:
       "Server-Side Request Forgery — tricking a server into making requests to unintended destinations, e.g. cloud metadata endpoints.",
-  },
-  {
-    term: "TARA",
-    category: "Compliance",
-    definition:
-      "Threat Analysis and Risk Assessment — the ISO 21434 methodology for evaluating automotive cybersecurity risk.",
   },
   {
     term: "Zone & Conduit",

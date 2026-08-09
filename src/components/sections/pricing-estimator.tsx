@@ -34,7 +34,8 @@ export function PricingEstimator() {
       <div className="space-y-6">
         <p className="text-sm text-muted-foreground">
           Adjust the expected finding counts to estimate your Hybrid engagement
-          cost. You only pay for verified, manually-confirmed vulnerabilities.
+          cost. You pay only for vulnerabilities that BlockSecBrain has
+          independently reviewed and reproduced.
         </p>
         {SEVERITY_ORDER.map((sev) => {
           const config = PRICING[sev];
@@ -91,8 +92,9 @@ export function PricingEstimator() {
           ))}
         </div>
         <p className="mt-4 text-xs text-muted-foreground">
-          Final pricing is confirmed after a scope walkthrough. No findings =
-          you cover only the minimal effort floor.
+          Final pricing is confirmed after a scope walkthrough. If no
+          vulnerabilities are verified, you pay only the minimum engagement fee
+          agreed in writing during scoping.
         </p>
         <Button asChild className="mt-4 w-full cyber-glow">
           <a href="/#contact">

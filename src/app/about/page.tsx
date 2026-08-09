@@ -16,6 +16,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { ContactForm } from "@/components/sections/contact-form";
+import { Certifications } from "@/components/sections/certifications";
 
 export const metadata: Metadata = {
   title: "About",
@@ -42,7 +43,7 @@ const VALUES = [
   {
     icon: HeartHandshake,
     title: "Client-First",
-    desc: "Post-remediation retests at minimal cost, plus direct engineer access throughout.",
+    desc: "Post-remediation retests at a reduced rate, plus direct engineer access throughout.",
   },
 ];
 
@@ -90,7 +91,15 @@ const FAQ_ITEMS = [
   },
   {
     q: "Is a verification retest included?",
-    a: "Yes. Once your team has patched the reported findings, we re-test every remediated issue to confirm the fix is effective and the vulnerability is genuinely closed. This post-remediation retest is available at a minimal charge — far below a full paid add-on, with no hidden fees. We don't impose an arbitrary time limit, because patching timelines vary and new vulnerabilities emerge continuously.",
+    a: "Yes. Once your team has patched the reported findings, we re-test every remediated issue to confirm the fix is effective and the vulnerability is genuinely closed. Post-remediation retesting is offered at a reduced rate confirmed during scoping, with no hidden fees. We don't impose an arbitrary time limit, because patching timelines vary and new vulnerabilities emerge continuously.",
+  },
+  {
+    q: "How is this different from an automated scan or a standard VAPT?",
+    a: "Automated scanners report potential issues; they cannot tell you which ones an attacker could actually use against your business. Our work is manual security research: we threat-model the system, chain weaknesses together, and attempt controlled exploitation to prove real impact. Every reported issue is independently reproduced and evidenced with a proof-of-concept, and anything we cannot reproduce is discarded rather than padded into the report.",
+  },
+  {
+    q: "Who is accountable for the quality of the assessment?",
+    a: "BlockSecBrain. We own the engagement end to end — scoping, testing, validation of every finding, the final report, and the retest. You have a single accountable point of contact throughout, and we stand behind the technical accuracy of everything we deliver.",
   },
   {
     q: "How do you stay unbiased across firmware, cloud, and AI?",
@@ -223,6 +232,25 @@ export default function AboutPage() {
               Post-remediation retest available
             </span>
           </div>
+        </div>
+      </section>
+
+      {/* Security Expertise & Certifications */}
+      <section className="border-b border-border/60 py-14 md:py-20">
+        <div className="container mx-auto max-w-7xl px-4">
+          <div className="mx-auto mb-10 max-w-3xl text-center">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-primary">
+              Credentials
+            </p>
+            <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
+              Security Expertise &amp; Certifications
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              Selected professional certifications supporting our expertise
+              across cloud security, offensive security, and infrastructure.
+            </p>
+          </div>
+          <Certifications />
         </div>
       </section>
 

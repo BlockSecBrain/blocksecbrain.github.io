@@ -110,7 +110,7 @@ export interface IndustryCard {
 
 export const INDUSTRIES: IndustryCard[] = [
   {
-    title: "Automotive OEMs & Tier-1",
+    title: "Automotive & Connected Devices",
     desc: "ECUs, telematics, and connected vehicle platforms",
     icon: "car",
   },
@@ -149,9 +149,9 @@ export interface StatItem {
 
 export const STATS: StatItem[] = [
   {
-    value: "100+",
-    label: "Enterprise Assessments",
-    sub: "Web, Cloud, Mobile & AI Security",
+    value: "Manual",
+    label: "Expert-Led Testing",
+    sub: "Web, Cloud, Mobile, Firmware & AI",
   },
   {
     value: "0%",
@@ -198,6 +198,6 @@ export const CAPABILITIES: CapabilityCard[] = [
   },
   {
     title: "Regulatory evidence mapping",
-    desc: "CRA, RED, IEC 62443, ISO 21434",
+    desc: "CRA, RED, IEC 62443, ISO 27001",
   },
 ];

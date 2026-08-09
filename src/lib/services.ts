@@ -208,7 +208,7 @@ export const SERVICES: ServiceData[] = [
       },
       {
         q: "Is a retest included?",
-        a: "Yes. Once your team has patched the reported findings, we re-test every remediated issue to confirm the fix is effective and the vulnerability is genuinely closed. This post-remediation retest is available at a minimal charge — far below a full paid add-on, with no hidden fees. We don't impose an arbitrary time limit, because patching timelines vary and new vulnerabilities emerge continuously.",
+        a: "Yes. Once your team has patched the reported findings, we re-test every remediated issue to confirm the fix is effective and the vulnerability is genuinely closed. Post-remediation retesting is offered at a reduced rate confirmed during scoping, with no hidden fees. We don't impose an arbitrary time limit, because patching timelines vary and new vulnerabilities emerge continuously.",
       },
     ],
     related: ["ai-security", "mobile-application-security", "cloud-security"],
@@ -490,7 +490,7 @@ export const SERVICES: ServiceData[] = [
     heroDesc:
       "IoT and OT penetration testing covering firmware analysis, hardware interfaces, industrial protocols, and IEC 62443 alignment with operations-safe methodology. RED & CRA product readiness.",
     bullets: [
-      "IEC 62443 / ISO 21434 evidence",
+      "IEC 62443 compliance evidence",
       "RED & CRA product readiness validation",
       "Operations-safe, non-disruptive testing",
     ],
@@ -547,7 +547,6 @@ export const SERVICES: ServiceData[] = [
     ],
     standards: [
       "IEC 62443-4-1, 4-2 & 3-3",
-      "ISO/SAE 21434",
       "OWASP IoT Top 10",
       "MITRE ATT&CK for ICS",
       "EU Cyber Resilience Act",
