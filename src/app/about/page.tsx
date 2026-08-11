@@ -16,7 +16,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { ContactForm } from "@/components/sections/contact-form";
-import { Certifications } from "@/components/sections/certifications";
 
 export const metadata: Metadata = {
   title: "About",
@@ -232,25 +231,6 @@ export default function AboutPage() {
               Post-remediation retest available
             </span>
           </div>
-        </div>
-      </section>
-
-      {/* Security Expertise & Certifications */}
-      <section className="border-b border-border/60 py-14 md:py-20">
-        <div className="container mx-auto max-w-7xl px-4">
-          <div className="mx-auto mb-10 max-w-3xl text-center">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-primary">
-              Credentials
-            </p>
-            <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
-              Security Expertise &amp; Certifications
-            </h2>
-            <p className="mt-4 text-muted-foreground">
-              Selected professional certifications supporting our expertise
-              across cloud security, offensive security, and infrastructure.
-            </p>
-          </div>
-          <Certifications />
         </div>
       </section>
 
